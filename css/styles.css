@@ -388,6 +388,21 @@ h1 {
   margin-bottom: 1.25rem;
 }
 
+.corner {
+  width: min(980px, calc(100% - 2.5rem));
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 1.25rem 1.75rem;
+  align-items: start;
+}
+
+.corner-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 18px;
+}
+
 .prose {
   display: grid;
   gap: 1.15rem;
@@ -493,11 +508,32 @@ h1 {
   gap: 1.2rem;
 }
 
+.personal-wrap {
+  width: min(980px, calc(100% - 2.5rem));
+}
+
 .personal {
   background: var(--white);
   border-radius: 28px;
   padding: clamp(1.5rem, 4vw, 2.75rem);
   box-shadow: var(--shadow);
+}
+
+.personal-split {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.personal-photo {
+  margin: 0;
+}
+
+.personal-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
 }
 
 .personal h2 {
@@ -775,6 +811,16 @@ select[aria-invalid="true"] {
 }
 
 @media (min-width: 800px) {
+  .corner {
+    grid-template-columns: 10.5rem 1fr;
+    gap: 2.5rem;
+  }
+
+  .personal-split {
+    grid-template-columns: minmax(240px, 0.72fr) 1.15fr;
+    gap: 2.25rem;
+  }
+
   .hero {
     grid-template-columns: minmax(0, 1fr) minmax(380px, 46vw);
     min-height: calc(100svh - 8.25rem);
