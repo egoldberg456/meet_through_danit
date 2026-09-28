@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join the Database — Meet Through Danit</title>
+  <meta name="description" content="Fill out the profile form to join Danit’s database for free and be considered for a potential introduction.">
+  <meta name="theme-color" content="#7E52E8">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="brand-bar" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="index.html">Meet Through <em>Danit</em></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+        <span></span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="work.html">Work With Me</a>
+        <a href="faq.html">FAQ</a>
+        <a class="nav-cta" href="join.html" aria-current="page">Join Here</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="wrap wrap-narrow">
+        <p class="kicker">Free to join</p>
+        <h1>Join the database</h1>
+        <p class="lede">Fill out the profile form to be added to my database. After you submit it, you’ll receive an email introducing Meet Through Danit and the ways we can work together.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap wrap-narrow">
+        <div class="success" data-success hidden tabindex="-1">
+          <p class="kicker">Profile received</p>
+          <h2>Thank you for joining!</h2>
+          <p class="prose">Your profile has been submitted. Look out for an email from Meet Through Danit.</p>
+          <p class="form-note" data-pending hidden></p>
+          <div class="actions actions-start">
+            <a class="btn" href="work.html">See ways to work together</a>
+          </div>
+        </div>
+
+        <form class="form-card" data-form novalidate>
+          <div class="form-grid">
+            <div class="field-row">
+              <label class="field">
+                <span>Name</span>
+                <input name="name" type="text" autocomplete="name" required>
+              </label>
+              <label class="field">
+                <span>Email</span>
+                <input name="email" type="email" autocomplete="email" required>
+              </label>
+            </div>
+            <div class="field-row">
+              <label class="field">
+                <span>Phone <span class="optional">(optional)</span></span>
+                <input name="phone" type="tel" autocomplete="tel">
+              </label>
+              <label class="field">
+                <span>City</span>
+                <input name="city" type="text" autocomplete="address-level2" required>
+              </label>
+            </div>
+            <div class="field-row">
+              <label class="field">
+                <span>Age</span>
+                <input name="age" type="number" inputmode="numeric" min="18" max="99" required>
+              </label>
+            </div>
+            <label class="field">
+              <span>A little about you</span>
+              <textarea name="about" required placeholder="Humor, values, and the details that don’t fit in a typical profile."></textarea>
+            </label>
+            <label class="field">
+              <span>Who you’re hoping to meet</span>
+              <textarea name="looking_for" required placeholder="What matters to you in a partner."></textarea>
+            </label>
+            <fieldset class="field">
+              <legend class="fieldset-label">What would be useful right now?</legend>
+              <div class="checks">
+                <label class="check">
+                  <input type="checkbox" name="interests" value="Database">
+                  <span>Keep me in mind for an introduction</span>
+                </label>
+                <label class="check">
+                  <input type="checkbox" name="interests" value="Coaching">
+                  <span>Dating coaching</span>
+                </label>
+                <label class="check">
+                  <input type="checkbox" name="interests" value="Active matchmaking">
+                  <span>Active matchmaking</span>
+                </label>
+              </div>
+            </fieldset>
+            <label class="field">
+              <span>Anything else <span class="optional">(optional)</span></span>
+              <textarea name="anything_else" placeholder="Something I should know before we talk."></textarea>
+            </label>
+            <div class="field">
+              <label class="check">
+                <input type="checkbox" name="jewish_identity" value="yes" required>
+                <span>I identify as Jewish and I’m looking for, or open to, a Jewish partner.</span>
+              </label>
+            </div>
+            <div class="field">
+              <label class="check">
+                <input type="checkbox" name="adult" value="yes" required>
+                <span>I am 18 or older.</span>
+              </label>
+            </div>
+            <p class="hp" aria-hidden="true">
+              <label>Company <input class="hp-input" type="text" name="company" tabindex="-1" autocomplete="off"></label>
+            </p>
+            <p class="form-note">By joining, you agree to the <a href="privacy.html">privacy policy</a> and <a href="terms.html">terms</a>. Your profile is not posted on this website.</p>
+            <button class="btn" type="submit">Join the Database</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <p class="footer-name">Meet Through Danit</p>
+        <p>Thoughtful introductions and personal guidance</p>
+        <p>California, with a focus on the Bay Area and Los Angeles</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="about.html">About</a>
+        <a href="work.html">Work With Me</a>
+        <a href="faq.html">FAQ</a>
+        <a href="join.html">Join the Database</a>
+        <a href="ask.html">Ask a Question</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+    </div>
+    <div class="wrap">
+      <p class="footer-copy">© <span id="year"></span> Meet Through Danit</p>
+    </div>
+  </footer>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

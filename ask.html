@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ask a Question — Meet Through Danit</title>
+  <meta name="description" content="Send Danit a question the FAQ didn’t answer, or start a conversation about Gold, Platinum, or Diamond support.">
+  <meta name="theme-color" content="#7E52E8">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="brand-bar" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="index.html">Meet Through <em>Danit</em></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+        <span></span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="work.html">Work With Me</a>
+        <a href="faq.html">FAQ</a>
+        <a class="nav-cta" href="join.html">Join Here</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="wrap wrap-narrow">
+        <p class="kicker">Ask a Question</p>
+        <h1>Have a question the FAQ didn’t answer?</h1>
+        <p class="lede">Send it here. If you’re curious about a consultation, active matchmaking, or more dedicated support, say which one and I’ll follow up.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap wrap-narrow">
+        <div class="success" data-success hidden tabindex="-1">
+          <p class="kicker">Question received</p>
+          <h2>Thank you.</h2>
+          <p class="prose">Your question has been submitted. Danit will follow up by email.</p>
+          <p class="form-note" data-pending hidden></p>
+          <div class="actions actions-start">
+            <a class="btn" href="faq.html">Back to the FAQ</a>
+          </div>
+        </div>
+
+        <form class="form-card" data-form novalidate>
+          <div class="form-grid">
+            <div class="field-row">
+              <label class="field">
+                <span>Name</span>
+                <input name="name" type="text" autocomplete="name" required>
+              </label>
+              <label class="field">
+                <span>Email</span>
+                <input name="email" type="email" autocomplete="email" required>
+              </label>
+            </div>
+            <label class="field">
+              <span>What is this about?</span>
+              <select name="interest" data-interest>
+                <option value="general">A question</option>
+                <option value="gold">Gold — one-time consultation</option>
+                <option value="platinum">Platinum — active matchmaking</option>
+                <option value="diamond">Diamond — more dedicated support</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Your question</span>
+              <textarea name="question" required></textarea>
+            </label>
+            <p class="hp" aria-hidden="true">
+              <label>Company <input class="hp-input" type="text" name="company" tabindex="-1" autocomplete="off"></label>
+            </p>
+            <p class="form-note">Have a question the FAQ didn’t answer? Send it here. Read the <a href="privacy.html">privacy policy</a>.</p>
+            <button class="btn" type="submit">Send my question</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <p class="footer-name">Meet Through Danit</p>
+        <p>Thoughtful introductions and personal guidance</p>
+        <p>California, with a focus on the Bay Area and Los Angeles</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="about.html">About</a>
+        <a href="work.html">Work With Me</a>
+        <a href="faq.html">FAQ</a>
+        <a href="join.html">Join the Database</a>
+        <a href="ask.html">Ask a Question</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+    </div>
+    <div class="wrap">
+      <p class="footer-copy">© <span id="year"></span> Meet Through Danit</p>
+    </div>
+  </footer>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
