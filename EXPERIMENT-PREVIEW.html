@@ -1043,9 +1043,10 @@ body[data-colors="lavender"] .band-violet{background:#54213d}
     <h2>Kind words from people I've worked with</h2>
     <p class="testimonial-note">Sample layout only. These are placeholders, not client quotes.</p>
     <div class="testimonial-grid">
-      <figure class="testimonial-card"><blockquote>“A real client quote could go here.”</blockquote><figcaption>Client name or approved attribution</figcaption></figure>
-      <figure class="testimonial-card"><blockquote>“A second real client quote could go here.”</blockquote><figcaption>Client name or approved attribution</figcaption></figure>
+      <figure class="testimonial-card"><blockquote>Approved testimonial quote goes here.</blockquote><figcaption>Client name or approved attribution</figcaption></figure>
+      <figure class="testimonial-card"><blockquote>Another approved testimonial quote goes here.</blockquote><figcaption>Client name or approved attribution</figcaption></figure>
     </div>
+    <div class="actions actions-start"><a class="btn" data-preview-nav href="https://htmlpreview.github.io/?https://github.com/egoldberg456/meet_through_danit/blob/experiment/font-colors-testimonials-preview/EXPERIMENT-TESTIMONIALS.html">Read all testimonials</a></div>
   </div>
 </section>
     <section class="section band-violet">
@@ -1085,7 +1086,7 @@ document.getElementById("font-choice").addEventListener("change",e=>document.bod
 document.getElementById("color-choice").addEventListener("change",e=>document.body.dataset.colors=e.target.value);
 document.getElementById("testimonial-choice").addEventListener("change",e=>{const section=document.getElementById("testimonials-preview");section.hidden=!e.target.checked;if(e.target.checked)requestAnimationFrame(()=>section.scrollIntoView({behavior:"smooth",block:"start"}));});
 document.getElementById("year").textContent=new Date().getFullYear();
-document.querySelectorAll("a").forEach(a=>a.addEventListener("click",e=>e.preventDefault()));
+document.querySelectorAll("a:not([data-preview-nav])").forEach(a=>a.addEventListener("click",e=>e.preventDefault()));
 </script>
 </body>
 </html>
