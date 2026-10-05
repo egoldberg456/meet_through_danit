@@ -949,7 +949,7 @@ body[data-colors="lavender"] .band-violet{background:#54213d}
 <body data-font="current" data-colors="current">
 <div class="experiment-panel" role="region" aria-label="Website experiment controls">
   <div class="experiment-inner">
-    <div><strong>EXPERIMENT PREVIEW — NOT THE FINAL WEBSITE</strong><p>Try combinations below. Only this preview changes. Links on the page are disabled.</p></div>
+    <div><strong>EXPERIMENT PREVIEW — NOT THE FINAL WEBSITE</strong><p>Try combinations below. The testimonials switch scrolls to that section. Only this preview changes.</p></div>
     <div class="experiment-controls">
       <label>Font option<select id="font-choice"><option value="current">A · Current: Fraunces + Outfit</option><option value="newsreader">B · Newsreader + Outfit</option><option value="playfair">C · Playfair Display + Outfit</option><option value="script">D · Alex Brush accent + Playfair</option></select></label>
       <label>Color placement<select id="color-choice"><option value="current">1 · Current placement</option><option value="plum">2 · Plum hero</option><option value="lavender">3 · Lavender hero</option></select></label>
@@ -1083,7 +1083,7 @@ body[data-colors="lavender"] .band-violet{background:#54213d}
   <script>
 document.getElementById("font-choice").addEventListener("change",e=>document.body.dataset.font=e.target.value);
 document.getElementById("color-choice").addEventListener("change",e=>document.body.dataset.colors=e.target.value);
-document.getElementById("testimonial-choice").addEventListener("change",e=>document.getElementById("testimonials-preview").hidden=!e.target.checked);
+document.getElementById("testimonial-choice").addEventListener("change",e=>{const section=document.getElementById("testimonials-preview");section.hidden=!e.target.checked;if(e.target.checked)requestAnimationFrame(()=>section.scrollIntoView({behavior:"smooth",block:"start"}));});
 document.getElementById("year").textContent=new Date().getFullYear();
 document.querySelectorAll("a").forEach(a=>a.addEventListener("click",e=>e.preventDefault()));
 </script>
