@@ -1,19 +1,17 @@
 :root {
-  --violet: #7e52e8;
-  --violet-deep: #5c32c9;
-  --violet-ink: #3d218f;
+  --plum: #54213d;
   --coral: #d85946;
   --coral-deep: #c44736;
-  --blush: #eeb9bd;
+  --lavender: #c9aad1;
   --cream: #fff7e9;
   --white: #ffffff;
-  --ink: #2a2140;
-  --muted: #5c546e;
-  --line: rgba(42, 33, 64, 0.12);
+  --ink: var(--plum);
+  --muted: #6b4d60;
+  --line: rgba(84, 33, 61, 0.12);
   --serif: "Fraunces", "Iowan Old Style", Palatino, Georgia, serif;
   --sans: "Outfit", "Avenir Next", "Segoe UI", sans-serif;
   --header: 7.25rem;
-  --shadow: 0 24px 60px rgba(92, 50, 201, 0.1);
+  --shadow: 0 24px 60px rgba(84, 33, 61, 0.1);
 }
 
 *,
@@ -105,9 +103,9 @@ p {
   height: 7px;
   background: linear-gradient(
     90deg,
-    var(--violet) 0 25%,
+    var(--plum) 0 25%,
     var(--coral) 25% 50%,
-    var(--blush) 50% 75%,
+    var(--lavender) 50% 75%,
     var(--cream) 75% 100%
   );
 }
@@ -142,7 +140,7 @@ p {
 .logo em {
   font-style: italic;
   font-weight: 520;
-  color: var(--violet-deep);
+  color: var(--plum);
 }
 
 .nav-toggle {
@@ -208,7 +206,7 @@ p {
   letter-spacing: 0.14em;
   font-size: 0.78rem;
   font-weight: 500;
-  color: var(--violet-ink);
+  color: var(--plum);
   padding: 0.85rem 0.2rem;
 }
 
@@ -219,7 +217,7 @@ p {
 .nav-cta {
   margin-top: 0.4rem;
   align-self: flex-start;
-  background: var(--coral);
+  background: var(--coral-deep);
   color: var(--cream) !important;
   border-radius: 999px;
   padding: 0.8rem 1.15rem !important;
@@ -247,7 +245,7 @@ p {
 
 .hero-photo {
   min-height: 32rem;
-  background: var(--blush);
+  background: var(--lavender);
 }
 
 .hero-photo img {
@@ -323,7 +321,7 @@ h1 {
   justify-content: center;
   text-decoration: none;
   border: 1.5px solid transparent;
-  background: var(--coral);
+  background: var(--coral-deep);
   color: var(--cream);
   border-radius: 999px;
   padding: 0.95rem 1.35rem;
@@ -364,18 +362,18 @@ h1 {
 
 .btn-ghost:hover {
   background: var(--cream);
-  color: var(--violet-ink);
+  color: var(--plum);
   border-color: var(--cream);
 }
 
 .btn-outline {
   background: transparent;
-  color: var(--violet-ink);
-  border-color: var(--violet);
+  color: var(--plum);
+  border-color: var(--plum);
 }
 
 .btn-outline:hover {
-  background: var(--violet);
+  background: var(--plum);
   color: var(--cream);
 }
 
@@ -417,13 +415,13 @@ h1 {
 }
 
 .band {
-  background: color-mix(in srgb, var(--blush) 48%, var(--cream));
+  background: color-mix(in srgb, var(--lavender) 48%, var(--cream));
 }
 
 .band-violet {
   background:
-    radial-gradient(700px 320px at 100% 0%, rgba(238, 185, 189, 0.28), transparent 60%),
-    var(--violet-deep);
+    radial-gradient(700px 320px at 100% 0%, rgba(201, 170, 209, 0.28), transparent 60%),
+    var(--plum);
   color: var(--cream);
 }
 
@@ -476,7 +474,7 @@ h1 {
 .path-more {
   margin-top: auto;
   padding-top: 0.5rem;
-  color: var(--violet-deep);
+  color: var(--plum);
   font-weight: 600;
   font-size: 0.92rem;
 }
@@ -556,7 +554,7 @@ h1 {
 }
 
 .tier:nth-child(even) {
-  background: color-mix(in srgb, var(--blush) 28%, white);
+  background: color-mix(in srgb, var(--lavender) 28%, white);
 }
 
 .tier-kicker {
@@ -564,7 +562,7 @@ h1 {
   letter-spacing: 0.16em;
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--violet-deep);
+  color: var(--plum);
   margin-bottom: 0.45rem;
 }
 
@@ -666,7 +664,7 @@ input,
 textarea,
 select {
   width: 100%;
-  border: 1.5px solid rgba(42, 33, 64, 0.16);
+  border: 1.5px solid rgba(84, 33, 61, 0.16);
   background: var(--cream);
   color: var(--ink);
   border-radius: 14px;
@@ -682,8 +680,8 @@ textarea {
 input:focus,
 textarea:focus,
 select:focus {
-  border-color: var(--violet);
-  box-shadow: 0 0 0 4px rgba(126, 82, 232, 0.16);
+  border-color: var(--plum);
+  box-shadow: 0 0 0 4px rgba(84, 33, 61, 0.16);
   background: var(--white);
 }
 
@@ -709,7 +707,7 @@ select[aria-invalid="true"] {
   align-items: flex-start;
   padding: 0.85rem 1rem;
   border-radius: 14px;
-  border: 1.5px solid rgba(42, 33, 64, 0.14);
+  border: 1.5px solid rgba(84, 33, 61, 0.14);
   background: var(--cream);
   cursor: pointer;
 }
@@ -718,12 +716,12 @@ select[aria-invalid="true"] {
   width: 1.05rem;
   height: 1.05rem;
   margin-top: 0.2rem;
-  accent-color: var(--violet);
+  accent-color: var(--plum);
 }
 
 .check:has(input:checked) {
-  border-color: var(--violet);
-  background: color-mix(in srgb, var(--violet) 8%, white);
+  border-color: var(--plum);
+  background: color-mix(in srgb, var(--plum) 8%, white);
 }
 
 .form-note {
@@ -732,7 +730,7 @@ select[aria-invalid="true"] {
 }
 
 .form-note a {
-  color: var(--violet-deep);
+  color: var(--plum);
 }
 
 .hp {
@@ -763,7 +761,7 @@ select[aria-invalid="true"] {
 }
 
 .site-footer {
-  background: var(--violet-ink);
+  background: var(--plum);
   color: var(--cream);
   padding: 3.5rem 0 2rem;
 }
@@ -796,7 +794,7 @@ select[aria-invalid="true"] {
 }
 
 .footer-nav a:hover {
-  color: var(--blush);
+  color: var(--lavender);
 }
 
 .footer-copy {
