@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EXPERIMENT PREVIEW — About Danit | Meet Through Danit</title>
+  <meta name="description" content="Danit is a connector who brings curiosity, warmth, and personal care to helping Jewish people find lasting relationships.">
+  <meta name="theme-color" content="#54213D">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet"><style>
+:root {
+  --plum: #54213d;
+  --coral: #d85946;
+  --coral-deep: #c44736;
+  --lavender: #c9aad1;
+  --cream: #fff7e9;
+  --white: #ffffff;
+  --ink: var(--plum);
+  --muted: #6b4d60;
+  --line: rgba(84, 33, 61, 0.12);
+  --serif: "Fraunces", "Iowan Old Style", Palatino, Georgia, serif;
+  --sans: "Outfit", "Avenir Next", "Segoe UI", sans-serif;
+  --header: 7.25rem;
+  --shadow: 0 24px 60px rgba(84, 33, 61, 0.1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+body.nav-open {
+  overflow: hidden;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  font-weight: 560;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 20;
+  background: var(--white);
+  color: var(--ink);
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.wrap {
+  width: min(1120px, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
+
+.wrap-narrow {
+  width: min(740px, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
+
+.brand-bar {
+  height: 7px;
+  background: linear-gradient(
+    90deg,
+    var(--plum) 0 25%,
+    var(--coral) 25% 50%,
+    var(--lavender) 50% 75%,
+    var(--cream) 75% 100%
+  );
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 4.5rem;
+  padding: 0.85rem 0;
+}
+
+.logo {
+  text-decoration: none;
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 560;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+.logo em {
+  font-style: italic;
+  font-weight: 520;
+  color: var(--plum);
+}
+
+.nav-toggle {
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--cream);
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.nav-toggle span,
+.nav-toggle span::before,
+.nav-toggle span::after {
+  display: block;
+  width: 1rem;
+  height: 1.5px;
+  background: var(--ink);
+  border-radius: 99px;
+  position: relative;
+}
+
+.nav-toggle span::before,
+.nav-toggle span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.nav-toggle span::before {
+  top: -5px;
+}
+
+.nav-toggle span::after {
+  top: 5px;
+}
+
+.site-nav {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  padding: 0.5rem 1.25rem 1.25rem;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.site-nav.is-open {
+  display: flex;
+}
+
+.site-nav a {
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--plum);
+  padding: 0.85rem 0.2rem;
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--coral-deep);
+}
+
+.nav-cta {
+  margin-top: 0.4rem;
+  align-self: flex-start;
+  background: var(--coral-deep);
+  color: var(--cream) !important;
+  border-radius: 999px;
+  padding: 0.8rem 1.15rem !important;
+}
+
+.nav-cta:hover {
+  background: var(--coral-deep);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: calc(100svh - 5.2rem);
+  background: var(--cream);
+  color: var(--ink);
+  text-align: left;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2.75rem, 6vw, 5rem) clamp(1.25rem, 4vw, 4.5rem);
+}
+
+.hero-photo {
+  min-height: 32rem;
+  background: var(--lavender);
+}
+
+.hero-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 62%;
+}
+
+.kicker {
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--coral-deep);
+}
+
+.hero .kicker {
+  color: var(--coral-deep);
+}
+
+h1 {
+  font-size: clamp(3.1rem, 8vw, 6.4rem);
+  color: var(--ink);
+}
+
+.hero h1 {
+  color: var(--ink);
+  font-weight: 560;
+  font-size: clamp(2.8rem, 4.6vw, 5.1rem);
+  max-width: 11ch;
+}
+
+.rule {
+  width: 3.25rem;
+  height: 3px;
+  border: 0;
+  margin: 1.5rem 0;
+  background: var(--coral);
+}
+
+.lede {
+  max-width: 40rem;
+  margin: 0 auto;
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.hero .lede {
+  margin: 0;
+  color: var(--muted);
+  max-width: 36rem;
+}
+
+.hero .actions {
+  justify-content: flex-start;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  background: var(--coral-deep);
+  color: var(--cream);
+  border-radius: 999px;
+  padding: 0.95rem 1.35rem;
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.btn:hover {
+  background: var(--coral-deep);
+}
+
+.btn:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.actions-start {
+  justify-content: flex-start;
+}
+
+.section-follow {
+  padding-top: 0;
+}
+
+.optional {
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--cream);
+  border-color: rgba(255, 247, 233, 0.7);
+}
+
+.btn-ghost:hover {
+  background: var(--cream);
+  color: var(--plum);
+  border-color: var(--cream);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--plum);
+  border-color: var(--plum);
+}
+
+.btn-outline:hover {
+  background: var(--plum);
+  color: var(--cream);
+}
+
+.section {
+  padding: clamp(4.5rem, 8vw, 7rem) 0;
+}
+
+.section h2 {
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  margin-bottom: 1.25rem;
+}
+
+.corner {
+  width: min(980px, calc(100% - 2.5rem));
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 1.25rem 1.75rem;
+  align-items: start;
+}
+
+.corner-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 18px;
+}
+
+.prose {
+  display: grid;
+  gap: 1.15rem;
+  color: var(--muted);
+  font-size: 1.125rem;
+  line-height: 1.75;
+}
+
+.prose strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.band {
+  background: color-mix(in srgb, var(--lavender) 48%, var(--cream));
+}
+
+.band-violet {
+  background:
+    radial-gradient(700px 320px at 100% 0%, rgba(201, 170, 209, 0.28), transparent 60%),
+    var(--plum);
+  color: var(--cream);
+}
+
+.band-violet h2,
+.band-violet .lede {
+  color: var(--cream);
+}
+
+.path-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.path-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  min-height: 100%;
+  text-decoration: none;
+  background: var(--white);
+  border-radius: 22px;
+  padding: 1.5rem 1.4rem 1.35rem;
+  box-shadow: var(--shadow);
+  border: 1px solid transparent;
+}
+
+.path-card:hover {
+  border-color: var(--coral);
+}
+
+.path-index {
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--coral-deep);
+  font-weight: 600;
+}
+
+.path-card h3 {
+  font-size: 1.7rem;
+  color: var(--ink);
+}
+
+.path-card p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.path-more {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  color: var(--plum);
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.center-copy {
+  text-align: center;
+}
+
+.center-copy .lede,
+.center-copy .prose {
+  margin-inline: auto;
+}
+
+.page-hero {
+  padding: clamp(3.5rem, 7vw, 5.5rem) 0 0;
+}
+
+.page-hero h1 {
+  font-size: clamp(3rem, 7vw, 5.4rem);
+  max-width: 16ch;
+}
+
+.page-hero .lede {
+  margin: 1.25rem 0 0;
+}
+
+.story {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.personal-wrap {
+  width: min(980px, calc(100% - 2.5rem));
+}
+
+.personal {
+  background: var(--white);
+  border-radius: 28px;
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  box-shadow: var(--shadow);
+}
+
+.personal-split {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.personal-photo {
+  margin: 0;
+}
+
+.personal-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+}
+
+.personal h2 {
+  margin-bottom: 1rem;
+}
+
+.tier-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.tier {
+  display: grid;
+  gap: 1rem;
+  background: var(--white);
+  border-radius: 28px;
+  padding: clamp(1.4rem, 3vw, 2.2rem);
+  box-shadow: var(--shadow);
+  scroll-margin-top: 8.5rem;
+}
+
+.tier:nth-child(even) {
+  background: color-mix(in srgb, var(--lavender) 28%, white);
+}
+
+.tier-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--plum);
+  margin-bottom: 0.45rem;
+}
+
+.price {
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 4vw, 3.3rem);
+  letter-spacing: -0.04em;
+  color: var(--coral-deep);
+  line-height: 0.95;
+}
+
+.price span {
+  display: block;
+  margin-top: 0.35rem;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  letter-spacing: 0;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.tier h2 {
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  margin-bottom: 0.8rem;
+}
+
+.tier .prose {
+  margin-bottom: 1.3rem;
+}
+
+.faq-list {
+  display: grid;
+  margin-top: 1rem;
+}
+
+.faq-item {
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.faq-item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-item h2 {
+  font-size: clamp(1.55rem, 2.5vw, 2rem);
+  margin-bottom: 0.7rem;
+}
+
+.faq-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.form-card,
+.success {
+  background: var(--white);
+  border-radius: 28px;
+  padding: clamp(1.4rem, 3vw, 2.4rem);
+  box-shadow: var(--shadow);
+}
+
+.form-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.field-row {
+  display: grid;
+  gap: 1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.field span,
+.fieldset-label {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-inline-size: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  border: 1.5px solid rgba(84, 33, 61, 0.16);
+  background: var(--cream);
+  color: var(--ink);
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+  outline: none;
+}
+
+textarea {
+  min-height: 9rem;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--plum);
+  box-shadow: 0 0 0 4px rgba(84, 33, 61, 0.16);
+  background: var(--white);
+}
+
+input[aria-invalid="true"],
+textarea[aria-invalid="true"],
+select[aria-invalid="true"] {
+  border-color: var(--coral);
+}
+
+.field-error {
+  color: var(--coral-deep);
+  font-size: 0.9rem;
+}
+
+.checks {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.check {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  border: 1.5px solid rgba(84, 33, 61, 0.14);
+  background: var(--cream);
+  cursor: pointer;
+}
+
+.check input {
+  width: 1.05rem;
+  height: 1.05rem;
+  margin-top: 0.2rem;
+  accent-color: var(--plum);
+}
+
+.check:has(input:checked) {
+  border-color: var(--plum);
+  background: color-mix(in srgb, var(--plum) 8%, white);
+}
+
+.form-note {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.form-note a {
+  color: var(--plum);
+}
+
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.success {
+  outline: none;
+}
+
+.success h2 {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  margin: 0.4rem 0 0.8rem;
+}
+
+.legal {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.legal h2 {
+  font-size: 1.7rem;
+  margin-bottom: 0.45rem;
+}
+
+.site-footer {
+  background: var(--plum);
+  color: var(--cream);
+  padding: 3.5rem 0 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.footer-name {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  letter-spacing: -0.03em;
+}
+
+.footer-grid p {
+  color: rgba(255, 247, 233, 0.82);
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.1rem;
+}
+
+.footer-nav a {
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.footer-nav a:hover {
+  color: var(--lavender);
+}
+
+.footer-copy {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: rgba(255, 247, 233, 0.7);
+}
+
+:focus-visible {
+  outline: 3px solid var(--coral);
+  outline-offset: 3px;
+}
+
+@media (min-width: 800px) {
+  .corner {
+    grid-template-columns: 10.5rem 1fr;
+    gap: 2.5rem;
+  }
+
+  .personal-split {
+    grid-template-columns: minmax(240px, 0.72fr) 1.15fr;
+    gap: 2.25rem;
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 1fr) minmax(380px, 46vw);
+    min-height: calc(100svh - 8.25rem);
+  }
+
+  .hero-photo {
+    min-height: 0;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.15rem 0 0.95rem;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .site-nav {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1.35rem;
+    border: 0;
+    background: transparent;
+    padding: 0 0 0.15rem;
+  }
+
+  .site-nav a {
+    padding: 0.35rem 0.1rem;
+  }
+
+  .nav-cta {
+    margin-top: 0;
+    margin-left: 0.4rem;
+  }
+
+  .path-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .tier {
+    grid-template-columns: 220px 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .field-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.15fr 1fr;
+    align-items: start;
+  }
+
+  .footer-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.55rem 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .btn {
+    transition: none;
+  }
+}
+
+
+/* The following rules apply only to this experiment preview. */
+.experiment-panel{background:#fff;border-bottom:4px solid #d85946;color:#54213d;font-family:Arial,sans-serif;position:relative;z-index:50}
+.experiment-inner{max-width:1120px;margin:auto;padding:1rem 1.25rem;display:grid;gap:1rem}
+.experiment-panel strong{font-size:.88rem;letter-spacing:.05em}
+.experiment-panel p{font-size:.88rem;margin:.15rem 0 0}
+.experiment-controls{display:flex;gap:.75rem;flex-wrap:wrap;align-items:end}
+.experiment-controls label{font-size:.78rem;font-weight:700;display:grid;gap:.25rem}
+.experiment-controls select{background:#fff;color:#54213d;border:1px solid #54213d;min-width:190px;padding:.5rem .65rem;border-radius:8px;font:inherit}
+.experiment-controls .testimonials-switch{display:flex;align-items:center;gap:.45rem;padding:.55rem 0}
+.experiment-controls input{width:auto;margin:0;accent-color:#54213d}
+.testimonial-experiment{background:#fff7e9;scroll-margin-top:8rem}
+.testimonial-experiment[hidden]{display:none}
+.testimonial-note{color:#6b4d60;margin:0 0 1.6rem}
+.testimonial-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.testimonial-card{margin:0;padding:1.8rem;background:#fff;border-left:5px solid #c9aad1;border-radius:16px;box-shadow:0 12px 32px rgba(84,33,61,.08)}
+.testimonial-card blockquote{margin:0 0 1.3rem;font-family:var(--serif);font-size:1.55rem;line-height:1.3}
+.testimonial-card figcaption{font-size:.85rem;color:#6b4d60}
+body[data-font="newsreader"]{--serif:"Newsreader",Georgia,serif}
+body[data-font="playfair"]{--serif:"Playfair Display",Georgia,serif}
+body[data-font="script"]{--serif:"Playfair Display",Georgia,serif}
+body[data-font="script"] .hero h1,body[data-font="script"] .logo em{font-family:"Alex Brush",cursive;font-weight:400;letter-spacing:0}
+body[data-font="script"] .hero h1{font-size:clamp(4rem,7vw,7rem);max-width:14ch;line-height:.94}
+body[data-colors="plum"] .hero{background:#54213d;color:#fff7e9}
+body[data-colors="plum"] .hero h1,body[data-colors="plum"] .hero .lede{color:#fff7e9}
+body[data-colors="plum"] .hero .kicker{color:#c9aad1}
+body[data-colors="plum"] .hero .btn-outline{color:#fff7e9;border-color:#fff7e9}
+body[data-colors="plum"] .hero .btn-outline:hover{background:#fff7e9;color:#54213d}
+body[data-colors="plum"] .band{background:#fff7e9}
+body[data-colors="lavender"] .hero{background:#c9aad1;color:#54213d}
+body[data-colors="lavender"] .hero .lede{color:#54213d}
+body[data-colors="lavender"] .band{background:#fff7e9}
+body[data-colors="lavender"] .band-violet{background:#54213d}
+@media(min-width:800px){.experiment-inner{grid-template-columns:1fr auto;align-items:center}}
+
+  
+body{--serif:"Newsreader",Georgia,serif}
+.page-hero{background:#54213d;padding:clamp(3.5rem,7vw,5.5rem) 0;color:#fff7e9}
+.page-hero h1{color:#fff7e9}
+.page-hero .kicker{color:#c9aad1}
+.experiment-inner{display:block}
+.preview-return{display:inline-block;margin-top:.35rem;font-weight:700;color:#54213d}
+</style>
+</head>
+<body><div class="experiment-panel"><div class="experiment-inner"><strong>EXPERIMENT PREVIEW — NOT THE FINAL WEBSITE</strong><p>About page copy experiment · Newsreader + Outfit · Plum hero</p><a class="preview-return" href="https://htmlpreview.github.io/?https://github.com/egoldberg456/meet_through_danit/blob/experiment/font-colors-testimonials-preview/EXPERIMENT-PREVIEW.html">← Back to home experiment</a></div></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="brand-bar" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="https://htmlpreview.github.io/?https://github.com/egoldberg456/meet_through_danit/blob/experiment/font-colors-testimonials-preview/EXPERIMENT-PREVIEW.html">Meet Through <em>Danit</em></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+        <span></span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="https://htmlpreview.github.io/?https://github.com/egoldberg456/meet_through_danit/blob/experiment/font-colors-testimonials-preview/EXPERIMENT-ABOUT.html" aria-current="page">About</a>
+        <a href="services.html">Services</a>
+        <a href="faq.html">FAQ</a>
+        <a class="nav-cta" href="join.html">Join Here</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="wrap wrap-narrow">
+        <p class="kicker">About</p>
+        <h1>Hi, I’m Danit!</h1>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap wrap-narrow story prose">
+        <p>I’ve been a connector for as long as I can remember. I bring curiosity and an open heart to meeting people, and I love learning what makes someone themselves: their values, sense of humor, and the little details that don’t fit neatly into a profile. Getting to know people is my favorite part of this work.</p>
+        <p>Jewish community has always been part of my life. I served as president of UCLA Hillel and later worked at Jewish Family &amp; Children’s Services as a Volunteer and Program Manager. There, I built a community of young adults ages 20–40 who cared about giving back. I also matched older adults with volunteers for regular visits and companionship. That work showed me how meaningful it is to understand people well enough to bring them together with care.</p>
+        <p>I started Meet Through Danit to bring that warmth and personal care to finding love. I want to understand who you are, make introductions with intention, and offer thoughtful guidance as you date. My hope is to help you date with confidence and build a relationship that lasts. Whatever stage you’re in, you’ll have someone in your corner.</p>
+      </div>
+    </section>
+
+    <section class="section section-follow">
+      <div class="wrap personal-wrap">
+        <div class="personal personal-split">
+          <figure class="personal-photo">
+            <img src="https://raw.githubusercontent.com/egoldberg456/meet_through_danit/36bb989df8756fc3770bc5099394d431d1ba7240/wedding_photo.png" alt="Danit smiling in white pajamas as she holds her wedding dress, hanging from a tree">
+          </figure>
+          <div class="personal-copy">
+            <h2>A little more about me</h2>
+            <div class="prose">
+              <p>My dad is Israeli and Sephardic; my mom is American and Ashkenazi. Family, friends, and Jewish community have always been central in my life. I met my husband at Camp Ramah, and we’ve been together for over a decade.</p>
+              <p>I’m a Swiftie at heart, a ketchup enthusiast, and a lover of pesto pasta. I started a bake club in San Francisco, and I’ve spent six years perfecting my challah! I love to gab and could talk for hours about almost anything - especially curly hair tips. I firmly believe that dancing alone in your room to a favorite song can make almost any day better. I think the world could use more of that.</p>
+            </div>
+          </div>
+        </div>
+        <div class="actions actions-start">
+          <a class="btn" href="join.html">Join Here</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <p class="footer-name">Meet Through Danit</p>
+        <p>Thoughtful introductions and personal guidance</p>
+        <p>California, with a focus on the Bay Area and Los Angeles</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="faq.html">FAQ</a>
+        <a href="https://airtable.com/appZC34FWLhTvPwVi/pag2e944d42wKajmj/form" target="_blank" rel="noopener noreferrer">Join the Database</a>
+        <a href="ask.html">Ask a Question</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+    </div>
+    <div class="wrap">
+      <p class="footer-copy">© <span id="year"></span> Meet Through Danit</p>
+    </div>
+  </footer>
+  <script>document.getElementById("year").textContent=new Date().getFullYear();document.querySelectorAll("a").forEach(a=>{if(!a.href.includes("EXPERIMENT-"))a.addEventListener("click",e=>e.preventDefault())});</script>
+</body>
+</html>
