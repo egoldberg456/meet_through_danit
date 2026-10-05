@@ -944,7 +944,11 @@ body[data-colors="lavender"] .band{background:#fff7e9}
 body[data-colors="lavender"] .band-violet{background:#54213d}
 @media(min-width:800px){.experiment-inner{grid-template-columns:1fr auto;align-items:center}}
 
-  </style>
+  [hidden]{display:none !important}
+#about-preview .page-hero{background:#54213d;color:#fff7e9;padding:clamp(3.5rem,7vw,5.5rem) 0}
+#about-preview .page-hero h1{color:#fff7e9}
+#about-preview .page-hero .kicker{color:#c9aad1}
+</style>
 </head>
 <body data-font="current" data-colors="current">
 <div class="experiment-panel" role="region" aria-label="Website experiment controls">
@@ -961,13 +965,13 @@ body[data-colors="lavender"] .band-violet{background:#54213d}
   <div class="brand-bar" aria-hidden="true"></div>
   <header class="site-header">
     <div class="wrap header-inner">
-      <a class="logo" href="index.html">Meet Through <em>Danit</em></a>
+      <a class="logo" href="#main" data-preview-page="home">Meet Through <em>Danit</em></a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
         <span></span>
       </button>
       <nav id="site-nav" class="site-nav" aria-label="Primary">
-        <a href="index.html" aria-current="page">Home</a>
-        <a href="about.html">About</a>
+        <a href="#main" aria-current="page" data-preview-page="home">Home</a>
+        <a href="#about-preview" data-preview-page="about">About</a>
         <a href="services.html">Services</a>
         <a href="faq.html">FAQ</a>
         <a class="nav-cta" href="join.html">Join Here</a>
@@ -975,7 +979,7 @@ body[data-colors="lavender"] .band-violet{background:#54213d}
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" data-preview-view="home">
     <section class="hero">
       <div class="hero-copy">
         <p class="kicker">Meet Through Danit</p>
@@ -1060,6 +1064,43 @@ body[data-colors="lavender"] .band-violet{background:#54213d}
     </section>
   </main>
 
+  <main id="about-preview" data-preview-view="about" hidden>
+    <section class="page-hero">
+      <div class="wrap wrap-narrow">
+        <p class="kicker">About</p>
+        <h1>Hi, I’m Danit!</h1>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap wrap-narrow story prose">
+        <p>I’ve been a connector for as long as I can remember. I bring curiosity and an open heart to meeting people, and I love learning what makes someone themselves: their values, sense of humor, and the little details that don’t fit neatly into a profile. Getting to know people is my favorite part of this work.</p>
+        <p>Jewish community has always been part of my life. I served as president of UCLA Hillel and later worked at Jewish Family &amp; Children’s Services as a Volunteer and Program Manager. There, I built a community of young adults ages 20–40 who cared about giving back. I also matched older adults with volunteers for regular visits and companionship. That work showed me how meaningful it is to understand people well enough to bring them together with care.</p>
+        <p>I started Meet Through Danit to bring that warmth and personal care to finding love. I want to understand who you are, make introductions with intention, and offer thoughtful guidance as you date. My hope is to help you date with confidence and build a relationship that lasts. Whatever stage you’re in, you’ll have someone in your corner.</p>
+      </div>
+    </section>
+
+    <section class="section section-follow">
+      <div class="wrap personal-wrap">
+        <div class="personal personal-split">
+          <figure class="personal-photo">
+            <img src="https://raw.githubusercontent.com/egoldberg456/meet_through_danit/36bb989df8756fc3770bc5099394d431d1ba7240/wedding_photo.png" alt="Danit smiling in white pajamas as she holds her wedding dress, hanging from a tree">
+          </figure>
+          <div class="personal-copy">
+            <h2>A little more about me</h2>
+            <div class="prose">
+              <p>My dad is Israeli and Sephardic; my mom is American and Ashkenazi. Family, friends, and Jewish community have always been central in my life. I met my husband at Camp Ramah, and we’ve been together for over a decade.</p>
+              <p>I’m a Swiftie at heart, a ketchup enthusiast, and a lover of pesto pasta. I started a bake club in San Francisco, and I’ve spent six years perfecting my challah! I love to gab and could talk for hours about almost anything - especially curly hair tips. I firmly believe that dancing alone in your room to a favorite song can make almost any day better. I think the world could use more of that.</p>
+            </div>
+          </div>
+        </div>
+        <div class="actions actions-start">
+          <a class="btn" href="join.html">Join Here</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <footer class="site-footer">
     <div class="wrap footer-grid">
       <div>
@@ -1068,7 +1109,7 @@ body[data-colors="lavender"] .band-violet{background:#54213d}
         <p>Serving the Bay Area and Los Angeles</p>
       </div>
       <nav class="footer-nav" aria-label="Footer">
-        <a href="about.html">About</a>
+        <a href="#about-preview" data-preview-page="about">About</a>
         <a href="services.html">Services</a>
         <a href="faq.html">FAQ</a>
         <a href="https://airtable.com/appZC34FWLhTvPwVi/pag2e944d42wKajmj/form" target="_blank" rel="noopener noreferrer">Join the Database</a>
@@ -1086,7 +1127,8 @@ document.getElementById("font-choice").addEventListener("change",e=>document.bod
 document.getElementById("color-choice").addEventListener("change",e=>document.body.dataset.colors=e.target.value);
 document.getElementById("testimonial-choice").addEventListener("change",e=>{const section=document.getElementById("testimonials-preview");section.hidden=!e.target.checked;if(e.target.checked)requestAnimationFrame(()=>section.scrollIntoView({behavior:"smooth",block:"start"}));});
 document.getElementById("year").textContent=new Date().getFullYear();
-document.querySelectorAll("a:not([data-preview-nav])").forEach(a=>a.addEventListener("click",e=>e.preventDefault()));
+document.querySelectorAll("a[data-preview-page]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();const about=e.currentTarget.dataset.previewPage==="about";document.getElementById("main").hidden=about;document.getElementById("about-preview").hidden=!about;document.querySelectorAll(".site-nav a[data-preview-page]").forEach(link=>{if(link.dataset.previewPage===(about?"about":"home"))link.setAttribute("aria-current","page");else link.removeAttribute("aria-current")});window.scrollTo(0,0)}));
+document.querySelectorAll("a:not([data-preview-nav]):not([data-preview-page])").forEach(a=>a.addEventListener("click",e=>e.preventDefault()));
 </script>
 </body>
 </html>
