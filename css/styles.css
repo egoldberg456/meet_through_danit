@@ -8,7 +8,7 @@
   --ink: var(--plum);
   --muted: #6b4d60;
   --line: rgba(84, 33, 61, 0.12);
-  --serif: "Fraunces", "Iowan Old Style", Palatino, Georgia, serif;
+  --serif: "Newsreader", "Iowan Old Style", Palatino, Georgia, serif;
   --sans: "Outfit", "Avenir Next", "Segoe UI", sans-serif;
   --header: 7.25rem;
   --shadow: 0 24px 60px rgba(84, 33, 61, 0.1);
@@ -231,12 +231,13 @@ p {
   display: grid;
   grid-template-columns: 1fr;
   min-height: calc(100svh - 5.2rem);
-  background: var(--cream);
-  color: var(--ink);
+  background: var(--plum);
+  color: var(--cream);
   text-align: left;
 }
 
 .hero-copy {
+  background: radial-gradient(520px 390px at 0% 0%, rgba(201, 170, 209, .18), transparent 72%);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -246,6 +247,7 @@ p {
 .hero-photo {
   min-height: 32rem;
   background: var(--lavender);
+  border-top: 6px solid var(--lavender);
 }
 
 .hero-photo img {
@@ -266,7 +268,7 @@ p {
 }
 
 .hero .kicker {
-  color: var(--coral-deep);
+  color: var(--lavender);
 }
 
 h1 {
@@ -275,7 +277,7 @@ h1 {
 }
 
 .hero h1 {
-  color: var(--ink);
+  color: var(--cream);
   font-weight: 560;
   font-size: clamp(2.8rem, 4.6vw, 5.1rem);
   max-width: 11ch;
@@ -286,7 +288,7 @@ h1 {
   height: 3px;
   border: 0;
   margin: 1.5rem 0;
-  background: var(--coral);
+  background: var(--lavender);
 }
 
 .lede {
@@ -299,7 +301,7 @@ h1 {
 
 .hero .lede {
   margin: 0;
-  color: var(--muted);
+  color: var(--cream);
   max-width: 36rem;
 }
 
@@ -826,6 +828,8 @@ select[aria-invalid="true"] {
 
   .hero-photo {
     min-height: 0;
+    border-top: 0;
+    border-left: 6px solid var(--lavender);
   }
 
   .header-inner {
@@ -894,3 +898,12 @@ select[aria-invalid="true"] {
     transition: none;
   }
 }
+
+.hero .btn-outline { color: var(--cream); border-color: var(--lavender); }
+.hero .btn-outline:hover { background: var(--lavender); color: var(--plum); }
+.testimonials-intro { background: var(--cream); }
+.testimonials-page-hero { background: radial-gradient(640px 330px at 0% 0%, rgba(201,170,209,.18), transparent 75%), var(--plum); color: var(--cream); padding: clamp(3.5rem,7vw,5.5rem) 0; }
+.testimonials-page-hero h1, .testimonials-page-hero .lede { color: var(--cream); }
+.testimonials-page-hero .kicker { color: var(--lavender); }
+.testimonials-page-hero .lede { margin: 1.25rem 0 0; }
+.testimonials-empty { min-height: 24rem; }
