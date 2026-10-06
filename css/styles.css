@@ -490,6 +490,10 @@ h1 {
   margin-inline: auto;
 }
 
+.who-location {
+  margin-top: 1.5rem;
+}
+
 .page-hero {
   padding: clamp(3.5rem, 7vw, 5.5rem) 0 0;
 }
