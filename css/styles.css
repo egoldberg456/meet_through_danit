@@ -590,7 +590,8 @@ h1 {
   color: var(--muted);
 }
 
-.tier h2 {
+.tier h2,
+.tier h3 {
   font-size: clamp(2rem, 3vw, 2.7rem);
   margin-bottom: 0.8rem;
 }
@@ -911,3 +912,7 @@ select[aria-invalid="true"] {
 .testimonials-page-hero .kicker { color: var(--lavender); }
 .testimonials-page-hero .lede { margin: 1.25rem 0 0; }
 .testimonials-empty { min-height: 24rem; }
+
+.offerings-section { padding-bottom: 2rem; }
+.offerings-second { padding-top: 2.5rem; padding-bottom: clamp(4.5rem, 8vw, 7rem); }
+.offerings-heading { margin-bottom: 1.5rem !important; }
