@@ -507,6 +507,18 @@ h1 {
   margin: 1.25rem 0 0;
 }
 
+.about-portrait {
+  width: min(100%, 480px);
+  margin: 2rem 0 0;
+}
+
+.about-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+}
+
 .story {
   display: grid;
   gap: 1.2rem;
