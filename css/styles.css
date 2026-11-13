@@ -943,3 +943,5 @@ select[aria-invalid="true"] {
   max-width: 42rem;
   margin: 1.5rem auto 0;
 }
+
+.hero-audience { margin-top: 1.25rem; color: var(--lavender); font-weight: 500; }
