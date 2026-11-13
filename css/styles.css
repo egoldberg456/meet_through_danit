@@ -515,21 +515,27 @@ h1 {
 }
 
 .about-portrait {
-  width: min(100%, 480px);
+  position: relative;
+  width: min(100%, 320px);
+  aspect-ratio: 1 / 1;
   margin: 0;
+  overflow: hidden;
+  border-radius: 50%;
 }
 
 .about-portrait img {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
-  aspect-ratio: 1;
+  height: 100%;
   object-fit: cover;
   border-radius: 50%;
 }
 
 @media (min-width: 700px) {
   .about-hero-inner {
-    grid-template-columns: minmax(0, 1fr) minmax(280px, 400px);
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 320px);
     gap: clamp(2rem, 5vw, 4rem);
   }
 }
