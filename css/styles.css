@@ -916,3 +916,30 @@ select[aria-invalid="true"] {
 .offerings-section { padding-bottom: 2rem; }
 .offerings-second { padding-top: 2.5rem; padding-bottom: clamp(4.5rem, 8vw, 7rem); }
 .offerings-heading { margin-bottom: 1.5rem !important; }
+
+.testimonial-card {
+  margin: 0;
+  padding: clamp(1.75rem, 5vw, 3rem);
+  background: var(--white);
+  border-radius: 28px;
+  border-top: 5px solid var(--lavender);
+  box-shadow: var(--shadow);
+}
+.testimonial-card blockquote, .testimonial-preview { margin: 0; }
+.testimonial-card blockquote p, .testimonial-preview p {
+  font-family: var(--serif);
+  font-size: clamp(1.45rem, 2.6vw, 2rem);
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: var(--plum);
+}
+.testimonial-card figcaption, .testimonial-preview footer {
+  margin-top: 1.25rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.testimonial-preview {
+  max-width: 42rem;
+  margin: 1.5rem auto 0;
+}
