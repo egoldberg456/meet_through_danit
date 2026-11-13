@@ -35,13 +35,57 @@
     <section class="page-hero">
       <div class="wrap wrap-narrow">
         <p class="kicker">Get in touch</p>
-        <h1>Let’s talk about how I can support you</h1>
-        <p class="lede">I’ll have a link here soon to book a free 15-minute introductory call. For now, you can reach me by email.</p>
+        <h1>Tell me what kind of support you’re looking for</h1>
+        <p class="lede">Interested in working together? Send me a note, and I’ll follow up with next steps. Questions are welcome, too.</p>
       </div>
     </section>
+
     <section class="section">
-      <div class="wrap wrap-narrow center-copy">
-        <a class="btn" href="mailto:danit@meetthroughdanit.com?subject=Meet%20Through%20Danit%20introductory%20call">Email Danit</a>
+      <div class="wrap wrap-narrow">
+        <div class="success" data-success hidden tabindex="-1">
+          <p class="kicker">Message received</p>
+          <h2>Thank you.</h2>
+          <p class="prose">Your message has been submitted. I’ll follow up by email.</p>
+          <p class="form-note" data-pending hidden></p>
+          <div class="actions actions-start">
+            <a class="btn" href="faq.html">Back to the FAQ</a>
+          </div>
+        </div>
+
+        <form class="form-card" data-form novalidate>
+          <div class="form-grid">
+            <div class="field-row">
+              <label class="field">
+                <span>Name</span>
+                <input name="name" type="text" autocomplete="name" required>
+              </label>
+              <label class="field">
+                <span>Email</span>
+                <input name="email" type="email" autocomplete="email" required>
+              </label>
+            </div>
+            <label class="field">
+              <span>What is this about?</span>
+              <select name="interest" data-interest>
+                <option value="general">A question</option>
+                <option value="consultation">Dating consultation</option>
+                <option value="coaching">Dating coaching (after a consultation)</option>
+                <option value="pre-date">Pre-date call</option>
+                <option value="active-matchmaking">Active matchmaking</option>
+                <option value="dedicated-support">More dedicated support</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Your message</span>
+              <textarea name="question" required></textarea>
+            </label>
+            <p class="hp" aria-hidden="true">
+              <label>Company <input class="hp-input" type="text" name="company" tabindex="-1" autocomplete="off"></label>
+            </p>
+            <p class="form-note">Tell me what you’re looking for or ask a question. Read the <a href="privacy.html">privacy policy</a>.</p>
+            <button class="btn" type="submit">Send my message</button>
+          </div>
+        </form>
       </div>
     </section>
   </main>
@@ -59,7 +103,7 @@
         <a href="faq.html">FAQ</a>
         <a href="testimonials.html">Testimonials</a>
         <a href="https://airtable.com/appZC34FWLhTvPwVi/pag2e944d42wKajmj/form" target="_blank" rel="noopener noreferrer">Join the Database</a>
-        <a href="mailto:danit@meetthroughdanit.com?subject=Meet%20Through%20Danit">Email Danit</a>
+        <a href="ask.html">Ask a Question</a>
         <a href="privacy.html">Privacy Policy</a>
         <a href="terms.html">Terms</a>
       </nav>
