@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Copy comparison — Meet Through Danit (experiment)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>:root {
+  --plum: #54213d;
+  --coral: #d85946;
+  --coral-deep: #c44736;
+  --lavender: #c9aad1;
+  --cream: #fff7e9;
+  --white: #ffffff;
+  --ink: var(--plum);
+  --muted: #6b4d60;
+  --line: rgba(84, 33, 61, 0.12);
+  --serif: "Newsreader", "Iowan Old Style", Palatino, Georgia, serif;
+  --sans: "Outfit", "Avenir Next", "Segoe UI", sans-serif;
+  --header: 7.25rem;
+  --shadow: 0 24px 60px rgba(84, 33, 61, 0.1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+body.nav-open {
+  overflow: hidden;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  font-weight: 560;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 20;
+  background: var(--white);
+  color: var(--ink);
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.wrap {
+  width: min(1120px, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
+
+.wrap-narrow {
+  width: min(740px, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
+
+.brand-bar {
+  height: 7px;
+  background: linear-gradient(
+    90deg,
+    var(--plum) 0 25%,
+    var(--coral) 25% 50%,
+    var(--lavender) 50% 75%,
+    var(--cream) 75% 100%
+  );
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 4.5rem;
+  padding: 0.85rem 0;
+}
+
+.logo,
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo img {
+  display: block;
+  width: clamp(8.5rem, 17vw, 10.5rem);
+  height: auto;
+}
+
+.footer-brand img {
+  display: block;
+  width: min(11rem, 55vw);
+  height: auto;
+}
+
+.nav-toggle {
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--cream);
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.nav-toggle span,
+.nav-toggle span::before,
+.nav-toggle span::after {
+  display: block;
+  width: 1rem;
+  height: 1.5px;
+  background: var(--ink);
+  border-radius: 99px;
+  position: relative;
+}
+
+.nav-toggle span::before,
+.nav-toggle span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.nav-toggle span::before {
+  top: -5px;
+}
+
+.nav-toggle span::after {
+  top: 5px;
+}
+
+.site-nav {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  padding: 0.5rem 1.25rem 1.25rem;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.site-nav.is-open {
+  display: flex;
+}
+
+.site-nav a {
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--plum);
+  padding: 0.85rem 0.2rem;
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--coral-deep);
+}
+
+.nav-cta {
+  margin-top: 0.4rem;
+  align-self: flex-start;
+  background: var(--coral-deep);
+  color: var(--cream) !important;
+  border-radius: 999px;
+  padding: 0.8rem 1.15rem !important;
+}
+
+.nav-cta:hover {
+  background: var(--coral-deep);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: calc(100svh - 5.2rem);
+  background: var(--plum);
+  color: var(--cream);
+  text-align: left;
+}
+
+.hero-copy {
+  background: radial-gradient(520px 390px at 0% 0%, rgba(201, 170, 209, .18), transparent 72%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2.75rem, 6vw, 5rem) clamp(1.25rem, 4vw, 4.5rem);
+}
+
+.hero-photo {
+  min-height: 32rem;
+  background: var(--lavender);
+  border-top: 6px solid var(--lavender);
+}
+
+.hero-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 62%;
+}
+
+.kicker {
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--coral-deep);
+}
+
+.hero .kicker {
+  color: var(--lavender);
+}
+
+h1 {
+  font-size: clamp(3.1rem, 8vw, 6.4rem);
+  color: var(--ink);
+}
+
+.hero h1 {
+  color: var(--cream);
+  font-weight: 560;
+  font-size: clamp(2.8rem, 4.6vw, 5.1rem);
+  max-width: 11ch;
+}
+
+.rule {
+  width: 3.25rem;
+  height: 3px;
+  border: 0;
+  margin: 1.5rem 0;
+  background: var(--lavender);
+}
+
+.lede {
+  max-width: 40rem;
+  margin: 0 auto;
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.hero .lede {
+  margin: 0;
+  color: var(--cream);
+  max-width: 36rem;
+}
+
+.hero .actions {
+  justify-content: flex-start;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  background: var(--coral-deep);
+  color: var(--cream);
+  border-radius: 999px;
+  padding: 0.95rem 1.35rem;
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.btn:hover {
+  background: var(--coral-deep);
+}
+
+.btn:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.actions-start {
+  justify-content: flex-start;
+}
+
+.section-follow {
+  padding-top: 0;
+}
+
+.optional {
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--cream);
+  border-color: rgba(255, 247, 233, 0.7);
+}
+
+.btn-ghost:hover {
+  background: var(--cream);
+  color: var(--plum);
+  border-color: var(--cream);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--plum);
+  border-color: var(--plum);
+}
+
+.btn-outline:hover {
+  background: var(--plum);
+  color: var(--cream);
+}
+
+.section {
+  padding: clamp(4.5rem, 8vw, 7rem) 0;
+}
+
+.section h2 {
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  margin-bottom: 1.25rem;
+}
+
+.corner {
+  width: min(980px, calc(100% - 2.5rem));
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 1.25rem 1.75rem;
+  align-items: start;
+}
+
+.corner-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 18px;
+}
+
+.prose {
+  display: grid;
+  gap: 1.15rem;
+  color: var(--muted);
+  font-size: 1.125rem;
+  line-height: 1.75;
+}
+
+.prose strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.band {
+  background: color-mix(in srgb, var(--lavender) 48%, var(--cream));
+}
+
+.band-violet {
+  background:
+    radial-gradient(700px 320px at 100% 0%, rgba(201, 170, 209, 0.28), transparent 60%),
+    var(--plum);
+  color: var(--cream);
+}
+
+.band-violet h2,
+.band-violet .lede {
+  color: var(--cream);
+}
+
+.path-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.path-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  min-height: 100%;
+  text-decoration: none;
+  background: var(--white);
+  border-radius: 22px;
+  padding: 1.5rem 1.4rem 1.35rem;
+  box-shadow: var(--shadow);
+  border: 1px solid transparent;
+}
+
+.path-card:hover {
+  border-color: var(--coral);
+}
+
+.path-index {
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--coral-deep);
+  font-weight: 600;
+}
+
+.path-card h3 {
+  font-size: 1.7rem;
+  color: var(--ink);
+}
+
+.path-card p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.path-more {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  color: var(--plum);
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.center-copy {
+  text-align: center;
+}
+
+.center-copy .lede,
+.center-copy .prose {
+  margin-inline: auto;
+}
+
+.who-location {
+  margin-top: 1.5rem;
+}
+
+.page-hero {
+  padding: clamp(3.5rem, 7vw, 5.5rem) 0 0;
+}
+
+.page-hero h1 {
+  font-size: clamp(3rem, 7vw, 5.4rem);
+  max-width: 16ch;
+}
+
+.page-hero .lede {
+  margin: 1.25rem 0 0;
+}
+
+.about-hero-inner {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  max-width: 980px;
+}
+
+.about-portrait-cluster {
+  position: relative;
+  width: min(100%, 400px);
+  aspect-ratio: 1 / 1;
+}
+
+.about-portrait {
+  position: absolute;
+  aspect-ratio: 1 / 1;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.about-portrait-main {
+  top: 0;
+  left: 0;
+  width: 80%;
+}
+
+.about-portrait-small {
+  right: 0;
+  bottom: 0;
+  width: 46%;
+  border: 6px solid var(--cream);
+}
+
+.about-portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-portrait-small img {
+  object-position: 50% 42%;
+}
+
+@media (min-width: 700px) {
+  .about-hero-inner {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 400px);
+    gap: clamp(2rem, 5vw, 4rem);
+  }
+}
+
+.story {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.personal-wrap {
+  width: min(980px, calc(100% - 2.5rem));
+}
+
+.personal {
+  background: var(--white);
+  border-radius: 28px;
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  box-shadow: var(--shadow);
+}
+
+.personal-split {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.personal-photo {
+  margin: 0;
+}
+
+.personal-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+}
+
+.personal h2 {
+  margin-bottom: 1rem;
+}
+
+.tier-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.tier {
+  display: grid;
+  gap: 1rem;
+  background: var(--white);
+  border-radius: 28px;
+  padding: clamp(1.4rem, 3vw, 2.2rem);
+  box-shadow: var(--shadow);
+  scroll-margin-top: 8.5rem;
+}
+
+.tier:nth-child(even) {
+  background: color-mix(in srgb, var(--lavender) 28%, white);
+}
+
+.tier-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--plum);
+  margin-bottom: 0.45rem;
+}
+
+.price {
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 4vw, 3.3rem);
+  letter-spacing: -0.04em;
+  color: var(--coral-deep);
+  line-height: 0.95;
+}
+
+.price span {
+  display: block;
+  margin-top: 0.35rem;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  letter-spacing: 0;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.tier h2,
+.tier h3 {
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  margin-bottom: 0.8rem;
+}
+
+.tier .prose {
+  margin-bottom: 1.3rem;
+}
+
+.faq-list {
+  display: grid;
+  margin-top: 1rem;
+}
+
+.faq-item {
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.faq-item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-item h2 {
+  font-size: clamp(1.55rem, 2.5vw, 2rem);
+  margin-bottom: 0.7rem;
+}
+
+.faq-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.form-card,
+.success {
+  background: var(--white);
+  border-radius: 28px;
+  padding: clamp(1.4rem, 3vw, 2.4rem);
+  box-shadow: var(--shadow);
+}
+
+.form-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.field-row {
+  display: grid;
+  gap: 1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.field span,
+.fieldset-label {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-inline-size: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  border: 1.5px solid rgba(84, 33, 61, 0.16);
+  background: var(--cream);
+  color: var(--ink);
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+  outline: none;
+}
+
+textarea {
+  min-height: 9rem;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--plum);
+  box-shadow: 0 0 0 4px rgba(84, 33, 61, 0.16);
+  background: var(--white);
+}
+
+input[aria-invalid="true"],
+textarea[aria-invalid="true"],
+select[aria-invalid="true"] {
+  border-color: var(--coral);
+}
+
+.field-error {
+  color: var(--coral-deep);
+  font-size: 0.9rem;
+}
+
+.checks {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.check {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  border: 1.5px solid rgba(84, 33, 61, 0.14);
+  background: var(--cream);
+  cursor: pointer;
+}
+
+.check input {
+  width: 1.05rem;
+  height: 1.05rem;
+  margin-top: 0.2rem;
+  accent-color: var(--plum);
+}
+
+.check:has(input:checked) {
+  border-color: var(--plum);
+  background: color-mix(in srgb, var(--plum) 8%, white);
+}
+
+.form-note {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.form-note a {
+  color: var(--plum);
+}
+
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.success {
+  outline: none;
+}
+
+.success h2 {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  margin: 0.4rem 0 0.8rem;
+}
+
+.legal {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.legal h2 {
+  font-size: 1.7rem;
+  margin-bottom: 0.45rem;
+}
+
+.site-footer {
+  background: var(--plum);
+  color: var(--cream);
+  padding: 3.5rem 0 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.footer-name {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  letter-spacing: -0.03em;
+}
+
+.footer-grid p {
+  color: rgba(255, 247, 233, 0.82);
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.1rem;
+}
+
+.footer-nav a {
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.footer-nav a:hover {
+  color: var(--lavender);
+}
+
+.footer-copy {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: rgba(255, 247, 233, 0.7);
+}
+
+:focus-visible {
+  outline: 3px solid var(--coral);
+  outline-offset: 3px;
+}
+
+@media (min-width: 800px) {
+  .corner {
+    grid-template-columns: 10.5rem 1fr;
+    gap: 2.5rem;
+  }
+
+  .personal-split {
+    grid-template-columns: minmax(240px, 0.72fr) 1.15fr;
+    gap: 2.25rem;
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 1fr) minmax(380px, 46vw);
+    min-height: calc(100svh - 8.25rem);
+  }
+
+  .hero-photo {
+    min-height: 0;
+    border-top: 0;
+    border-left: 6px solid var(--lavender);
+  }
+
+  .header-inner {
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.15rem 0 0.95rem;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .site-nav {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1.35rem;
+    border: 0;
+    background: transparent;
+    padding: 0 0 0.15rem;
+  }
+
+  .site-nav a {
+    padding: 0.35rem 0.1rem;
+  }
+
+  .nav-cta {
+    margin-top: 0;
+    margin-left: 0.4rem;
+  }
+
+  .path-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .tier {
+    grid-template-columns: 220px 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .field-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.15fr 1fr;
+    align-items: start;
+  }
+
+  .footer-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.55rem 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .btn {
+    transition: none;
+  }
+}
+
+.hero .btn-outline { color: var(--cream); border-color: var(--lavender); }
+.hero .btn-outline:hover { background: var(--lavender); color: var(--plum); }
+.testimonials-intro { background: var(--cream); }
+.testimonials-page-hero { background: radial-gradient(640px 330px at 0% 0%, rgba(201,170,209,.18), transparent 75%), var(--plum); color: var(--cream); padding: clamp(3.5rem,7vw,5.5rem) 0; }
+.testimonials-page-hero h1, .testimonials-page-hero .lede { color: var(--cream); }
+.testimonials-page-hero .kicker { color: var(--lavender); }
+.testimonials-page-hero .lede { margin: 1.25rem 0 0; }
+.testimonials-empty { min-height: 24rem; }
+
+.offerings-section { padding-bottom: 2rem; }
+.offerings-second { padding-top: 2.5rem; padding-bottom: clamp(4.5rem, 8vw, 7rem); }
+.offerings-heading { margin-bottom: 1.5rem !important; }
+
+.testimonial-card {
+  margin: 0;
+  padding: clamp(1.75rem, 5vw, 3rem);
+  background: var(--white);
+  border-radius: 28px;
+  border-top: 5px solid var(--lavender);
+  box-shadow: var(--shadow);
+}
+.testimonial-card blockquote, .testimonial-preview { margin: 0; }
+.testimonial-card blockquote p, .testimonial-preview p {
+  font-family: var(--serif);
+  font-size: clamp(1.45rem, 2.6vw, 2rem);
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: var(--plum);
+}
+.testimonial-card figcaption, .testimonial-preview footer {
+  margin-top: 1.25rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.testimonial-preview {
+  max-width: 42rem;
+  margin: 1.5rem auto 0;
+}
+
+.hero-audience { margin-top: 1.25rem; color: var(--lavender); font-weight: 500; }
+
+.preview-banner{position:sticky;top:0;z-index:50;background:#fff7e9;color:#54213d;border-bottom:2px solid #c9aad1;box-shadow:0 6px 24px #54213d1c}
+.preview-tools{max-width:1120px;margin:auto;padding:.65rem 1.25rem;display:flex;justify-content:space-between;align-items:center;gap:.75rem;flex-wrap:wrap}
+.preview-label{font-size:.8rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:#54213d}.preview-label strong{color:#bc4433}
+.preview-controls{display:flex;gap:.5rem;flex-wrap:wrap}
+.preview-controls button{padding:.5rem .85rem;border:1px solid #54213d66;border-radius:999px;background:transparent;color:#54213d;cursor:pointer;font-size:.86rem;line-height:1.25}
+.preview-controls button[aria-pressed="true"]{background:#54213d;color:#fff7e9}
+.preview-note{padding:.55rem 1.25rem;margin:0 auto;max-width:1120px;font-size:.85rem;line-height:1.35}
+.preview-note::before{content:"Preview only · ";font-weight:600}
+.site-header{position:relative;top:auto}
+.preview-nav{display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;font-size:.85rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.preview-nav button{border:0;background:none;color:#54213d;cursor:pointer;padding:.4rem 0;border-bottom:2px solid transparent}
+.preview-nav button[aria-current="page"]{color:#c44736;border-color:#c44736}
+.preview-list{margin:.7rem 0 1.2rem;padding-left:1.35rem;list-style:disc}
+.preview-list li{padding-left:.15rem;margin:.42rem 0;line-height:1.55}
+.preview-list li::marker{color:#c44736}
+.preview-list-centered{max-width:640px;text-align:left;margin:1.2rem auto 0}
+.path-card .preview-list{font-size:.98rem}
+.preview-signoff{margin-top:.8rem!important;font-style:italic}
+.tier .preview-list{margin-top:.4rem}
+[hidden]{display:none!important}
+@media(max-width:650px){.preview-tools{align-items:flex-start}.preview-label{width:100%}.preview-nav{gap:.85rem}.preview-controls button{font-size:.8rem;padding:.45rem .67rem}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a><div class="brand-bar"></div>
+<div class="preview-banner" role="region" aria-label="Experimental copy comparison">
+<div class="preview-tools"><span class="preview-label"><strong>EXPERIMENT</strong> · Paragraphs or bullets?</span>
+<div class="preview-controls" role="group" aria-label="Choose copy style">
+<button id="paragraphs" type="button" aria-pressed="true">Current paragraphs</button>
+<button id="bullets" type="button" aria-pressed="false">Bullet point version</button>
+</div></div>
+<p class="preview-note">Switch between versions on Home, Offerings, and About. Your actual website is unchanged. Links in this preview are inactive.</p>
+</div>
+<header class="site-header"><div class="wrap header-inner">
+<span class="logo"><img src="logo-burgundy.svg" alt="Meet Through Danit" width="450" height="250"></span>
+<nav class="preview-nav" aria-label="Compare pages">
+<button data-page="home" type="button" aria-current="page">Home</button>
+<button data-page="offerings" type="button">Offerings</button>
+<button data-page="about" type="button">About</button>
+</nav></div></header>
+<main id="main" tabindex="-1"></main>
+<footer class="site-footer"><div class="wrap footer-grid"><div><span class="footer-brand"><img src="logo-orange.svg" alt="Meet Through Danit" width="450" height="250"></span><p>Thoughtful introductions and personal guidance</p></div><p>This is an experimental comparison. It is not the live website.</p></div></footer>
+<script id="content-data" type="application/json">{"paragraphs":{"home":"\n    \u003csection class=\"hero\">\n      \u003cdiv class=\"hero-copy\">\n        \u003cp class=\"kicker\">Meet Through Danit\u003c/p>\n        \u003ch1>A more human approach to finding love.\u003c/h1>\n        \u003chr class=\"rule\">\n        \u003cp class=\"lede\">My mission is to bring warmth and personalized care to your dating journey. Through thoughtful introductions and guidance, I will support you in finding your person - someone who brings out the best in you. \u003c/p>\n        \u003cp class=\"hero-audience\">Currently serving Jewish singles.\u003c/p>\n        \u003cdiv class=\"actions\">\n          \u003ca class=\"btn\" href=\"https://airtable.com/appZC34FWLhTvPwVi/pag2e944d42wKajmj/form\" target=\"_blank\" rel=\"noopener noreferrer\">Join the Database\u003c/a>\n          \u003ca class=\"btn btn-outline\" href=\"services.html\">Offerings\u003c/a>\n        \u003c/div>\n      \u003c/div>\n      \u003cdiv class=\"hero-photo\">\n        \u003cimg src=\"beach_photo.png\" alt=\"Danit smiling on the beach\">\n      \u003c/div>\n    \u003c/section>\n\n    \u003csection class=\"section\">\n      \u003cdiv class=\"wrap corner\">\n        \u003cimg class=\"corner-photo\" src=\"solo_shot.png\" alt=\"Danit smiling outdoors\">\n        \u003cdiv>\n          \u003ch2>A person in your corner\u003c/h2>\n          \u003cdiv class=\"prose\">\n            \u003cp>Hi, I’m Danit. Whether you’re going on dates regularly, just starting to put yourself out there, or tired of swiping on apps, I’ll meet you where you are. I take time to learn what matters to you, offer honest and compassionate guidance, and make each introduction with care and a lasting partnership in mind.\u003c/p>\n          \u003c/div>\n        \u003c/div>\n      \u003c/div>\n    \u003c/section>\n\n    \u003csection class=\"section band\">\n      \u003cdiv class=\"wrap\">\n        \u003ch2>How we can work together\u003c/h2>\n        \u003cdiv class=\"path-grid\">\n          \u003ca class=\"path-card\" href=\"services.html#database\">\n            \u003cspan class=\"path-index\">01\u003c/span>\n            \u003ch3>Join the database\u003c/h3>\n            \u003cp>Join my free network of Jewish singles of all ages, wherever you live, and I’ll set you up if a potential match comes up. Who knows? This form might just be how you meet your person.\u003c/p>\n            \u003cspan class=\"path-more\">See this option\u003c/span>\n          \u003c/a>\n          \u003ca class=\"path-card\" href=\"services.html#active-matchmaking\">\n            \u003cspan class=\"path-index\">02\u003c/span>\n            \u003ch3>Active matchmaking\u003c/h3>\n            \u003cp>An active search for thoughtful introductions, with personal guidance as you date.\u003c/p>\n            \u003cspan class=\"path-more\">See this option\u003c/span>\n          \u003c/a>\n          \u003ca class=\"path-card\" href=\"services.html#consultation\">\n            \u003cspan class=\"path-index\">03\u003c/span>\n            \u003ch3>Consultation &amp; coaching\u003c/h3>\n            \u003cp>Personalized support to help you gain clarity, navigate dating with confidence, and feel ready for what comes next.\u003c/p>\n            \u003cspan class=\"path-more\">See this option\u003c/span>\n          \u003c/a>\n        \u003c/div>\n      \u003c/div>\n    \u003c/section>\n\n    \u003csection class=\"section\">\n      \u003cdiv class=\"wrap wrap-narrow center-copy\">\n        \u003ch2>Who belongs here\u003c/h2>\n        \u003cp class=\"lede\">If you identify as Jewish and are looking for, or open to, a Jewish partner, you belong here. You don’t need to express your Jewish identity in any particular way.\u003c/p>\n        \u003cp class=\"lede who-location\">Jewish singles of all ages are welcome here. I offer active matchmaking to clients in California, with a focus on the Bay Area and Los Angeles. My free database is open to Jewish singles anywhere, and is highly recommended because I meet people from all over!\u003c/p>\n      \u003c/div>\n    \u003c/section>\n\n    \u003csection class=\"section testimonials-intro\" aria-labelledby=\"testimonials-heading\">\n      \u003cdiv class=\"wrap wrap-narrow center-copy\">\n        \u003cp class=\"kicker\">Testimonials\u003c/p>\n        \u003ch2 id=\"testimonials-heading\">Kind words from people I’ve worked with\u003c/h2>\n        \u003cblockquote class=\"testimonial-preview\">\n          \u003cp>“Danit so thoughtfully introduced me to someone who felt meaningfully aligned with what I was looking for in a partner. By way of this introduction, it was clear to me that she had taken the time to truly understand me on a deep level, beyond the desired qualities on paper, and was incredibly intentional in her matchmaking approach. I’m so appreciative of the care, thoughtfulness, and personal attention she brought to the entire experience, and have no doubt she brings that same level of dedication and genuine investment to every person who is lucky enough to work with her.”\u003c/p>\n          \u003cfooter>H, female, 30\u003c/footer>\n        \u003c/blockquote>\n        \u003cdiv class=\"actions\">\u003ca class=\"btn btn-outline\" href=\"testimonials.html\">View all testimonials\u003c/a>\u003c/div>\n      \u003c/div>\n    \u003c/section>\n\n    \u003csection class=\"section band-violet\">\n      \u003cdiv class=\"wrap wrap-narrow center-copy\">\n        \u003ch2>Finding love is deeply personal, and it helps to have someone in your corner.\u003c/h2>\n        \u003cp class=\"lede\">I’d love to get to know you.\u003c/p>\n        \u003cdiv class=\"actions\">\n          \u003ca class=\"btn\" href=\"https://airtable.com/appZC34FWLhTvPwVi/pag2e944d42wKajmj/form\" target=\"_blank\" rel=\"noopener noreferrer\">Join the Database\u003c/a>\n        \u003c/div>\n      \u003c/div>\n    \u003c/section>\n  ","offerings":"\n    \u003csection class=\"page-hero\">\n      \u003cdiv class=\"wrap\">\n        \u003cp class=\"kicker\">Offerings\u003c/p>\n        \u003ch1>Support that meets you where you are\u003c/h1>\n        \u003cp class=\"lede\">Thoughtful introductions and personal guidance. I’ll help you find the kind of support that feels right for you.\u003c/p>\n      \u003c/div>\n    \u003c/section>\n\n    \u003csection class=\"section offerings-section\" aria-labelledby=\"matchmaking-heading\">\n      \u003cdiv class=\"wrap\">\n        \u003ch2 class=\"offerings-heading\" id=\"matchmaking-heading\">Matchmaking\u003c/h2>\n        \u003cdiv class=\"tier-list\">\n          \u003carticle class=\"tier\" id=\"database\">\n            \u003cdiv>\n              \u003cp class=\"tier-kicker\">Join my network\u003c/p>\n              \u003cp class=\"price\">Free\u003c/p>\n            \u003c/div>\n            \u003cdiv>\n              \u003ch3>Join the database\u003c/h3>\n              \u003cdiv class=\"prose\">\n                \u003cp>Join my free network of Jewish singles of all ages, wherever you live. I’m always meeting new people, and I’ll reach out if a potential match comes up.\u003c/p>\n              \u003c/div>\n              \u003ca class=\"btn\" href=\"https://airtable.com/appZC34FWLhTvPwVi/pag2e944d42wKajmj/form\" target=\"_blank\" rel=\"noopener noreferrer\">Join the Database\u003c/a>\n            \u003c/div>\n          \u003c/article>\n\n          \u003carticle class=\"tier\" id=\"active-matchmaking\">\n            \u003cdiv>\n              \u003cp class=\"tier-kicker\">Founding rate\u003c/p>\n              \u003cp class=\"price\">$500 \u003cspan>per month\u003c/span>\u003c/p>\n            \u003c/div>\n            \u003cdiv>\n              \u003ch3>Active matchmaking\u003c/h3>\n              \u003cdiv class=\"prose\">\n                \u003cp>Active matchmaking is for people who want a partner in the process of finding theirs. I’ll get to know you, offer honest perspective and coaching as you date, and actively search for potential matches. I’ll screen each possibility with care before making an introduction. This can be especially helpful if you’d value steady guidance or don’t have the time to do all the searching yourself. Active matchmaking is currently available to clients in California, with a focus on the Bay Area and Los Angeles.\u003c/p>\n                \u003cp>Your active matchmaking package begins with an included 90-minute dating consultation. Monthly support includes one 50-minute coaching session, complimentary pre-date prep, regular updates, and brief post-date feedback.\u003c/p>\n              \u003c/div>\n              \u003ca class=\"btn\" href=\"mailto:danit@meetthroughdanit.com?subject=Free%2015-minute%20intro%20call\">Email me to arrange a free 15-minute intro\u003c/a>\n            \u003c/div>\n          \u003c/article>\n\n          \u003carticle class=\"tier\" id=\"dedicated-support\">\n            \u003cdiv>\n              \u003cp class=\"tier-kicker\">Personalized plan\u003c/p>\n              \u003cp class=\"price\">Custom \u003cspan>pricing\u003c/span>\u003c/p>\n            \u003c/div>\n            \u003cdiv>\n              \u003ch3>Personalized support\u003c/h3>\n              \u003cdiv class=\"prose\">\n                \u003cp>If you’d like a different level of support from the options listed here, we can create a plan around what you need.\u003c/p>\n              \u003c/div>\n              \u003ca class=\"btn\" href=\"mailto:danit@meetthroughdanit.com?subject=Free%2015-minute%20intro%20call\">Email me to arrange a free 15-minute intro\u003c/a>\n            \u003c/div>\n          \u003c/article>\n        \u003c/div>\n      \u003c/div>\n    \u003c/section>\n\n    \u003csection class=\"section offerings-section offerings-second\" aria-labelledby=\"guidance-heading\">\n      \u003cdiv class=\"wrap\">\n        \u003ch2 class=\"offerings-heading\" id=\"guidance-heading\">Consultation &amp; coaching\u003c/h2>\n        \u003cdiv class=\"tier-list\">\n          \u003carticle class=\"tier\" id=\"consultation\">\n            \u003cdiv>\n              \u003cp class=\"tier-kicker\">One-time deep dive\u003c/p>\n              \u003cp class=\"price\">$200 \u003cspan>for 90 minutes\u003c/span>\u003c/p>\n            \u003c/div>\n            \u003cdiv>\n              \u003ch3>Dating consultation\u003c/h3>\n              \u003cdiv class=\"prose\">\n                \u003cp>This is a step beyond joining the database: we’ll spend time talking about what’s going well in your dating life, what’s been challenging, and what you’re looking for in a partner. Getting to know you through a conversation gives me a much fuller picture than a form can. If I meet someone who seems like a good fit, I’ll reach out about an introduction. Additional coaching is available if you’d like to continue, and consultations are available wherever you live.\u003c/p>\n                \u003cp>If you’d like me to actively search for you, that’s part of active matchmaking.\u003c/p>\n              \u003c/div>\n              \u003ca class=\"btn\" href=\"mailto:danit@meetthroughdanit.com?subject=Free%2015-minute%20intro%20call\">Email me to arrange a free 15-minute intro\u003c/a>\n            \u003c/div>\n          \u003c/article>\n\n          \u003carticle class=\"tier\" id=\"coaching\">\n            \u003cdiv>\n              \u003cp class=\"tier-kicker\">No consultation required\u003c/p>\n              \u003cp class=\"price\">$100 \u003cspan>for 50 minutes\u003c/span>\u003c/p>\n            \u003c/div>\n            \u003cdiv>\n              \u003ch3>Dating coaching\u003c/h3>\n              \u003cdiv class=\"prose\">\n                \u003cp>A focused session to work through a specific dating question or experience. Whether you’re navigating communication, building confidence, reflecting on recent dates, or deciding how to move forward with someone, you’ll leave with personalized guidance and practical next steps.\u003c/p>\n                \u003cp>You can book coaching on its own, without a prior consultation. This session focuses on your dating questions; if you’d like me to get to know you with potential introductions in mind, choose the 90-minute consultation.\u003c/p>\n              \u003c/div>\n              \u003ca class=\"btn\" href=\"mailto:danit@meetthroughdanit.com?subject=Free%2015-minute%20intro%20call\">Email me to arrange a free 15-minute intro\u003c/a>\n            \u003c/div>\n          \u003c/article>\n\n          \u003carticle class=\"tier\" id=\"pre-date\">\n            \u003cdiv>\n              \u003cp class=\"tier-kicker\">Before an upcoming date\u003c/p>\n              \u003cp class=\"price\">$50 \u003cspan>for 30 minutes\u003c/span>\u003c/p>\n            \u003c/div>\n            \u003cdiv>\n              \u003ch3>Pre-date call\u003c/h3>\n              \u003cdiv class=\"prose\">\n                \u003cp>A focused conversation before an upcoming date to talk through nerves, questions, and conversation ideas so you can show up feeling grounded and prepared.\u003c/p>\n                \u003cp>A pre-date call is available on its own; no consultation or coaching is required. If you have a date coming up, email me with the details of when your date is, and I’ll follow up about availability. Active matchmaking clients receive complimentary pre-date prep.\u003c/p>\n              \u003c/div>\n              \u003ca class=\"btn\" href=\"mailto:danit@meetthroughdanit.com?subject=Pre-date%20call\">Request a pre-date call\u003c/a>\n            \u003c/div>\n          \u003c/article>\n        \u003c/div>\n      \u003c/div>\n    \u003c/section>\n  ","about":"\n    \u003csection class=\"page-hero about-hero\">\n      \u003cdiv class=\"wrap about-hero-inner\">\n        \u003cdiv>\n          \u003cp class=\"kicker\">About\u003c/p>\n          \u003ch1>Hi, I’m Danit!\u003c/h1>\n        \u003c/div>\n        \u003cdiv class=\"about-portrait-cluster\">\n          \u003cfigure class=\"about-portrait about-portrait-main\">\n            \u003cimg src=\"danit-golden-gate.webp\" alt=\"Danit smiling by the Golden Gate Bridge\" width=\"1264\" height=\"1244\">\n          \u003c/figure>\n          \u003cfigure class=\"about-portrait about-portrait-small\">\n            \u003cimg src=\"danit-hosting-event.webp\" alt=\"Danit smiling while hosting a community gathering\" width=\"1152\" height=\"1536\">\n          \u003c/figure>\n        \u003c/div>\n      \u003c/div>\n    \u003c/section>\n\n    \u003csection class=\"section\">\n      \u003cdiv class=\"wrap wrap-narrow story prose\">\n        \u003cp>I’ve been a connector of people for as long as I can remember. I lead with curiosity and an open heart, and I love learning what makes someone who they are: their values, sense of humor, and the little details that don’t fit neatly into a profile. Getting to know someone on a deeper level is my favorite part of this work.\u003c/p>\n        \u003cp>Jewish community has always been part of my life. I served as president of UCLA Hillel and later worked at Jewish Family &amp; Children’s Services as a Volunteer and Program Manager. There, I built a community of young adults ages 20–40 who cared about giving back. I also matched older adults with volunteers for regular visits and companionship. That work showed me how meaningful it is to understand people well enough to bring them together with care.\u003c/p>\n        \u003cp>I started Meet Through Danit to bring that warmth and personal care to finding love. I want to understand who you are, make introductions with intention, and offer thoughtful guidance as you date. My hope is to help you date with confidence and build a relationship that lasts. Whatever stage you’re in, you’ll have someone in your corner.\u003c/p>\n      \u003c/div>\n    \u003c/section>\n\n    \u003csection class=\"section section-follow\">\n      \u003cdiv class=\"wrap personal-wrap\">\n        \u003cdiv class=\"personal personal-split\">\n          \u003cfigure class=\"personal-photo\">\n            \u003cimg src=\"wedding_photo.png\" alt=\"Danit smiling in white pajamas as she holds her wedding dress, hanging from a tree\">\n          \u003c/figure>\n          \u003cdiv class=\"personal-copy\">\n            \u003ch2>A little more about me\u003c/h2>\n            \u003cdiv class=\"prose\">\n              \u003cp>My dad is Israeli with Persian Jewish roots; my mom is Minnesotan and Ashkenazi. I was born and raised in Los Angeles and went to UCLA (Go Bruins), and I currently live in the beautiful city of San Francisco. Family, friends, and Jewish community have always been central in my life. I met my husband at Camp Ramah, and we’ve been together for over a decade.\u003c/p>\n              \u003cp>I’m a Swiftie at heart, a ketchup enthusiast, and a lover of pesto pasta. I started a bake club in San Francisco, and I’ve spent six years perfecting my challah! I love to gab and could talk for hours about almost anything - especially curly hair tips. I firmly believe that dancing alone in your room to a favorite song can make almost any day better. I think the world could use more of that.\u003c/p>\n            \u003c/div>\n          \u003c/div>\n        \u003c/div>\n        \u003cdiv class=\"actions actions-start\">\n          \u003ca class=\"btn\" href=\"https://airtable.com/appZC34FWLhTvPwVi/pag2e944d42wKajmj/form\" target=\"_blank\" rel=\"noopener noreferrer\">Join the Database\u003c/a>\n        \u003c/div>\n      \u003c/div>\n    \u003c/section>\n  "},"bullets":{"home":"\n    \u003csection class=\"hero\">\n      \u003cdiv class=\"hero-copy\">\n        \u003cp class=\"kicker\">Meet Through Danit\u003c/p>\n        \u003ch1>A more human approach to finding love.\u003c/h1>\n        \u003chr class=\"rule\">\n        \u003cp class=\"lede\">My mission is to bring warmth and personalized care to your dating journey. Through thoughtful introductions and guidance, I will support you in finding your person - someone who brings out the best in you. \u003c/p>\n        \u003cp class=\"hero-audience\">Currently serving Jewish singles.\u003c/p>\n        \u003cdiv class=\"actions\">\n          \u003ca class=\"btn\" href=\"https://airtable.com/appZC34FWLhTvPwVi/pag2e944d42wKajmj/form\" target=\"_blank\" rel=\"noopener noreferrer\">Join the Database\u003c/a>\n          \u003ca class=\"btn btn-outline\" href=\"services.html\">Offerings\u003c/a>\n        \u003c/div>\n      \u003c/div>\n      \u003cdiv class=\"hero-photo\">\n        \u003cimg src=\"beach_photo.png\" alt=\"Danit smiling on the beach\">\n      \u003c/div>\n    \u003c/section>\n\n    \u003csection class=\"section\">\n      \u003cdiv class=\"wrap corner\">\n        \u003cimg class=\"corner-photo\" src=\"solo_shot.png\" alt=\"Danit smiling outdoors\">\n        \u003cdiv>\n          \u003ch2>A person in your corner\u003c/h2>\n          \u003cdiv class=\"prose\">\n            \u003cp>Hi, I’m Danit. Wherever you are in dating, I’ll meet you there.\u003c/p>\u003cul class=\"preview-list\">\u003cli>I take time to learn what matters to you.\u003c/li>\u003cli>I offer honest, compassionate guidance.\u003c/li>\u003cli>I make introductions with care and a lasting partnership in mind.\u003c/li>\u003c/ul>\n          \u003c/div>\n        \u003c/div>\n      \u003c/div>\n    \u003c/section>\n\n    \u003csection class=\"section band\">\n      \u003cdiv class=\"wrap\">\n        \u003ch2>How we can work together\u003c/h2>\n        \u003cdiv class=\"path-grid\">\n          \u003ca class=\"path-card\" href=\"services.html#database\">\n            \u003cspan class=\"path-index\">01\u003c/span>\n            \u003ch3>Join the database\u003c/h3>\n            \u003cul class=\"preview-list\">\u003cli>Free for Jewish singles of all ages, wherever you live.\u003c/li>\u003cli>If a promising match comes up, I’ll reach out about an introduction.\u003c/li>\u003c/ul>\u003cp class=\"preview-signoff\">Who knows? This form might just be how you meet your person.\u003c/p>\n            \u003cspan class=\"path-more\">See this option\u003c/span>\n          \u003c/a>\n          \u003ca class=\"path-card\" href=\"services.html#active-matchmaking\">\n            \u003cspan class=\"path-index\">02\u003c/span>\n            \u003ch3>Active matchmaking\u003c/h3>\n            \u003cul class=\"preview-list\">\u003cli>An active search for potential matches.\u003c/li>\u003cli>Thoughtful introductions and guidance as you date.\u003c/li>\u003c/ul>\n            \u003cspan class=\"path-more\">See this option\u003c/span>\n          \u003c/a>\n          \u003ca class=\"path-card\" href=\"services.html#consultation\">\n            \u003cspan class=\"path-index\">03\u003c/span>\n            \u003ch3>Consultation &amp; coaching\u003c/h3>\n            \u003cul class=\"preview-list\">\u003cli>Clarity about what you’re looking for.\u003c/li>\u003cli>Guidance and confidence for the next step.\u003c/li>\u003c/ul>\n            \u003cspan class=\"path-more\">See this option\u003c/span>\n          \u003c/a>\n        \u003c/div>\n      \u003c/div>\n    \u003c/section>\n\n    \u003csection class=\"section\">\n      \u003cdiv class=\"wrap wrap-narrow center-copy\">\n        \u003ch2>Who belongs here\u003c/h2>\n        \u003cp class=\"lede\">If you identify as Jewish and are looking for, or open to, a Jewish partner, you belong here. You don’t need to express your Jewish identity in any particular way.\u003c/p>\u003cul class=\"preview-list preview-list-centered\">\u003cli>All ages are welcome in my free database, wherever you live.\u003c/li>\u003cli>Active matchmaking is for clients in California, with a focus on the Bay Area and Los Angeles.\u003c/li>\u003cli>I meet singles from all over, so I recommend joining the database even if you live elsewhere.\u003c/li>\u003c/ul>\n      \u003c/div>\n    \u003c/section>\n\n    \u003csection class=\"section testimonials-intro\" aria-labelledby=\"testimonials-heading\">\n      \u003cdiv class=\"wrap wrap-narrow center-copy\">\n        \u003cp class=\"kicker\">Testimonials\u003c/p>\n        \u003ch2 id=\"testimonials-heading\">Kind words from people I’ve worked with\u003c/h2>\n        \u003cblockquote class=\"testimonial-preview\">\n          \u003cp>“Danit so thoughtfully introduced me to someone who felt meaningfully aligned with what I was looking for in a partner. By way of this introduction, it was clear to me that she had taken the time to truly understand me on a deep level, beyond the desired qualities on paper, and was incredibly intentional in her matchmaking approach. I’m so appreciative of the care, thoughtfulness, and personal attention she brought to the entire experience, and have no doubt she brings that same level of dedication and genuine investment to every person who is lucky enough to work with her.”\u003c/p>\n          \u003cfooter>H, female, 30\u003c/footer>\n        \u003c/blockquote>\n        \u003cdiv class=\"actions\">\u003ca class=\"btn btn-outline\" href=\"testimonials.html\">View all testimonials\u003c/a>\u003c/div>\n      \u003c/div>\n    \u003c/section>\n\n    \u003csection class=\"section band-violet\">\n      \u003cdiv class=\"wrap wrap-narrow center-copy\">\n        \u003ch2>Finding love is deeply personal, and it helps to have someone in your corner.\u003c/h2>\n        \u003cp class=\"lede\">I’d love to get to know you.\u003c/p>\n        \u003cdiv class=\"actions\">\n          \u003ca class=\"btn\" href=\"https://airtable.com/appZC34FWLhTvPwVi/pag2e944d42wKajmj/form\" target=\"_blank\" rel=\"noopener noreferrer\">Join the Database\u003c/a>\n        \u003c/div>\n      \u003c/div>\n    \u003c/section>\n  ","offerings":"\n    \u003csection class=\"page-hero\">\n      \u003cdiv class=\"wrap\">\n        \u003cp class=\"kicker\">Offerings\u003c/p>\n        \u003ch1>Support that meets you where you are\u003c/h1>\n        \u003cp class=\"lede\">Thoughtful introductions and personal guidance. I’ll help you find the kind of support that feels right for you.\u003c/p>\n      \u003c/div>\n    \u003c/section>\n\n    \u003csection class=\"section offerings-section\" aria-labelledby=\"matchmaking-heading\">\n      \u003cdiv class=\"wrap\">\n        \u003ch2 class=\"offerings-heading\" id=\"matchmaking-heading\">Matchmaking\u003c/h2>\n        \u003cdiv class=\"tier-list\">\n          \u003carticle class=\"tier\" id=\"database\">\n            \u003cdiv>\n              \u003cp class=\"tier-kicker\">Join my network\u003c/p>\n              \u003cp class=\"price\">Free\u003c/p>\n            \u003c/div>\n            \u003cdiv>\n              \u003ch3>Join the database\u003c/h3>\n              \u003cdiv class=\"prose\">\n                \u003cp>Join my free network of Jewish singles of all ages, wherever you live. I’m always meeting new people, and I’ll reach out if a potential match comes up.\u003c/p>\n              \u003c/div>\n              \u003ca class=\"btn\" href=\"https://airtable.com/appZC34FWLhTvPwVi/pag2e944d42wKajmj/form\" target=\"_blank\" rel=\"noopener noreferrer\">Join the Database\u003c/a>\n            \u003c/div>\n          \u003c/article>\n\n          \u003carticle class=\"tier\" id=\"active-matchmaking\">\n            \u003cdiv>\n              \u003cp class=\"tier-kicker\">Founding rate\u003c/p>\n              \u003cp class=\"price\">$500 \u003cspan>per month\u003c/span>\u003c/p>\n            \u003c/div>\n            \u003cdiv>\n              \u003ch3>Active matchmaking\u003c/h3>\n              \u003cdiv class=\"prose\">\n                \u003cp>For people who want a partner in the process of finding theirs.\u003c/p>\u003cul class=\"preview-list\">\u003cli>I’ll get to know you and actively search for potential matches.\u003c/li>\u003cli>I’ll screen each possibility before making an introduction.\u003c/li>\u003cli>You’ll have honest perspective and coaching as you date.\u003c/li>\u003cli>We’ll begin with an included 90-minute dating consultation. Monthly support includes a 50-minute coaching session, complimentary pre-date prep, regular updates, and brief post-date feedback.\u003c/li>\u003c/ul>\u003cp>Available to clients in California, with a focus on the Bay Area and Los Angeles.\u003c/p>\n              \u003c/div>\n              \u003ca class=\"btn\" href=\"mailto:danit@meetthroughdanit.com?subject=Free%2015-minute%20intro%20call\">Email me to arrange a free 15-minute intro\u003c/a>\n            \u003c/div>\n          \u003c/article>\n\n          \u003carticle class=\"tier\" id=\"dedicated-support\">\n            \u003cdiv>\n              \u003cp class=\"tier-kicker\">Personalized plan\u003c/p>\n              \u003cp class=\"price\">Custom \u003cspan>pricing\u003c/span>\u003c/p>\n            \u003c/div>\n            \u003cdiv>\n              \u003ch3>Personalized support\u003c/h3>\n              \u003cdiv class=\"prose\">\n                \u003cp>If you’d like a different level of support from the options listed here, we can create a plan around what you need.\u003c/p>\n              \u003c/div>\n              \u003ca class=\"btn\" href=\"mailto:danit@meetthroughdanit.com?subject=Free%2015-minute%20intro%20call\">Email me to arrange a free 15-minute intro\u003c/a>\n            \u003c/div>\n          \u003c/article>\n        \u003c/div>\n      \u003c/div>\n    \u003c/section>\n\n    \u003csection class=\"section offerings-section offerings-second\" aria-labelledby=\"guidance-heading\">\n      \u003cdiv class=\"wrap\">\n        \u003ch2 class=\"offerings-heading\" id=\"guidance-heading\">Consultation &amp; coaching\u003c/h2>\n        \u003cdiv class=\"tier-list\">\n          \u003carticle class=\"tier\" id=\"consultation\">\n            \u003cdiv>\n              \u003cp class=\"tier-kicker\">One-time deep dive\u003c/p>\n              \u003cp class=\"price\">$200 \u003cspan>for 90 minutes\u003c/span>\u003c/p>\n            \u003c/div>\n            \u003cdiv>\n              \u003ch3>Dating consultation\u003c/h3>\n              \u003cdiv class=\"prose\">\n                \u003cp>A one-time conversation that gives me a fuller picture of you than a form can.\u003c/p>\u003cul class=\"preview-list\">\u003cli>Talk through what’s going well in dating, what’s been challenging, and what you’re looking for.\u003c/li>\u003cli>If I meet someone who seems like a good fit, I’ll reach out about an introduction.\u003c/li>\u003cli>Available wherever you live; additional coaching is available if you’d like to continue.\u003c/li>\u003c/ul>\u003cp>An active search is part of active matchmaking.\u003c/p>\n              \u003c/div>\n              \u003ca class=\"btn\" href=\"mailto:danit@meetthroughdanit.com?subject=Free%2015-minute%20intro%20call\">Email me to arrange a free 15-minute intro\u003c/a>\n            \u003c/div>\n          \u003c/article>\n\n          \u003carticle class=\"tier\" id=\"coaching\">\n            \u003cdiv>\n              \u003cp class=\"tier-kicker\">No consultation required\u003c/p>\n              \u003cp class=\"price\">$100 \u003cspan>for 50 minutes\u003c/span>\u003c/p>\n            \u003c/div>\n            \u003cdiv>\n              \u003ch3>Dating coaching\u003c/h3>\n              \u003cdiv class=\"prose\">\n                \u003cp>Focused support for a specific dating question or experience.\u003c/p>\u003cul class=\"preview-list\">\u003cli>Work through communication, confidence, recent dates, or a decision about someone you’re seeing.\u003c/li>\u003cli>Leave with personalized guidance and practical next steps.\u003c/li>\u003cli>Book on its own; no prior consultation required.\u003c/li>\u003c/ul>\u003cp>If you’d like me to get to know you with potential introductions in mind, choose the 90-minute consultation.\u003c/p>\n              \u003c/div>\n              \u003ca class=\"btn\" href=\"mailto:danit@meetthroughdanit.com?subject=Free%2015-minute%20intro%20call\">Email me to arrange a free 15-minute intro\u003c/a>\n            \u003c/div>\n          \u003c/article>\n\n          \u003carticle class=\"tier\" id=\"pre-date\">\n            \u003cdiv>\n              \u003cp class=\"tier-kicker\">Before an upcoming date\u003c/p>\n              \u003cp class=\"price\">$50 \u003cspan>for 30 minutes\u003c/span>\u003c/p>\n            \u003c/div>\n            \u003cdiv>\n              \u003ch3>Pre-date call\u003c/h3>\n              \u003cdiv class=\"prose\">\n                \u003cp>A focused conversation before an upcoming date.\u003c/p>\u003cul class=\"preview-list\">\u003cli>Talk through nerves, questions, and conversation ideas so you feel grounded and prepared.\u003c/li>\u003cli>Book on its own; no consultation or coaching required.\u003c/li>\u003cli>Email me your date’s timing and I’ll follow up about availability.\u003c/li>\u003c/ul>\u003cp>Active matchmaking clients receive complimentary pre-date prep.\u003c/p>\n              \u003c/div>\n              \u003ca class=\"btn\" href=\"mailto:danit@meetthroughdanit.com?subject=Pre-date%20call\">Request a pre-date call\u003c/a>\n            \u003c/div>\n          \u003c/article>\n        \u003c/div>\n      \u003c/div>\n    \u003c/section>\n  ","about":"\n    \u003csection class=\"page-hero about-hero\">\n      \u003cdiv class=\"wrap about-hero-inner\">\n        \u003cdiv>\n          \u003cp class=\"kicker\">About\u003c/p>\n          \u003ch1>Hi, I’m Danit!\u003c/h1>\n        \u003c/div>\n        \u003cdiv class=\"about-portrait-cluster\">\n          \u003cfigure class=\"about-portrait about-portrait-main\">\n            \u003cimg src=\"danit-golden-gate.webp\" alt=\"Danit smiling by the Golden Gate Bridge\" width=\"1264\" height=\"1244\">\n          \u003c/figure>\n          \u003cfigure class=\"about-portrait about-portrait-small\">\n            \u003cimg src=\"danit-hosting-event.webp\" alt=\"Danit smiling while hosting a community gathering\" width=\"1152\" height=\"1536\">\n          \u003c/figure>\n        \u003c/div>\n      \u003c/div>\n    \u003c/section>\n\n    \u003csection class=\"section\">\n      \u003cdiv class=\"wrap wrap-narrow story prose\">\n        \u003cp>I’ve been a connector of people for as long as I can remember. Getting to know someone on a deeper level is my favorite part of this work.\u003c/p>\u003cul class=\"preview-list\">\u003cli>I lead with curiosity and an open heart, learning what makes someone who they are beyond a profile.\u003c/li>\u003cli>As president of UCLA Hillel and later a Volunteer and Program Manager at Jewish Family &amp; Children’s Services, I built community and brought people together with care.\u003c/li>\u003cli>I started Meet Through Danit to bring that same warmth to finding love through thoughtful introductions and guidance.\u003c/li>\u003c/ul>\u003cp>Whatever stage you’re in, you’ll have someone in your corner.\u003c/p>\n      \u003c/div>\n    \u003c/section>\n\n    \u003csection class=\"section section-follow\">\n      \u003cdiv class=\"wrap personal-wrap\">\n        \u003cdiv class=\"personal personal-split\">\n          \u003cfigure class=\"personal-photo\">\n            \u003cimg src=\"wedding_photo.png\" alt=\"Danit smiling in white pajamas as she holds her wedding dress, hanging from a tree\">\n          \u003c/figure>\n          \u003cdiv class=\"personal-copy\">\n            \u003ch2>A little more about me\u003c/h2>\n            \u003cdiv class=\"prose\">\n              \u003cp>My dad is Israeli with Persian Jewish roots; my mom is Minnesotan and Ashkenazi. Family, friends, and Jewish community have always been central in my life.\u003c/p>\u003cul class=\"preview-list\">\u003cli>Born and raised in Los Angeles; UCLA alum (Go Bruins!) and now living in San Francisco.\u003c/li>\u003cli>Met my husband at Camp Ramah. We’ve been together for over a decade.\u003c/li>\u003cli>Swiftie, ketchup enthusiast, pesto pasta lover, and founder of a San Francisco bake club.\u003c/li>\u003cli>Six years perfecting my challah, and always up for a chat about curly hair tips.\u003c/li>\u003c/ul>\u003cp>I firmly believe dancing alone in your room to a favorite song can make almost any day better. I think the world could use more of that.\u003c/p>\n            \u003c/div>\n          \u003c/div>\n        \u003c/div>\n        \u003cdiv class=\"actions actions-start\">\n          \u003ca class=\"btn\" href=\"https://airtable.com/appZC34FWLhTvPwVi/pag2e944d42wKajmj/form\" target=\"_blank\" rel=\"noopener noreferrer\">Join the Database\u003c/a>\n        \u003c/div>\n      \u003c/div>\n    \u003c/section>\n  "}}</script>
+<script>
+const versions=JSON.parse(document.getElementById('content-data').textContent);
+let style='paragraphs',page='home';
+function show(resetScroll=false){
+document.getElementById('main').innerHTML=versions[style][page];
+document.querySelectorAll('.preview-controls button').forEach(b=>b.setAttribute('aria-pressed',String(b.id===style)));
+document.querySelectorAll('.preview-nav button').forEach(b=>b.setAttribute('aria-current',b.dataset.page===page?'page':'false'));
+document.title=(page[0].toUpperCase()+page.slice(1))+' · '+(style==='bullets'?'Bullets':'Paragraphs')+' · Meet Through Danit experiment';
+if(resetScroll)window.scrollTo({top:0,behavior:'instant'});
+}
+document.querySelectorAll('.preview-controls button').forEach(b=>b.addEventListener('click',()=>{style=b.id;show()}));
+document.querySelectorAll('.preview-nav button').forEach(b=>b.addEventListener('click',()=>{page=b.dataset.page;show(true)}));
+document.getElementById('main').addEventListener('click',e=>{const a=e.target.closest('a');if(a){e.preventDefault();const href=a.getAttribute('href')||'';if(href.startsWith('services.html')){page='offerings';show(true);const id=href.split('#')[1];if(id)document.getElementById(id)?.scrollIntoView({behavior:'smooth'});} }});
+show();
+</script></body></html>
