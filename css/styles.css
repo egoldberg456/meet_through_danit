@@ -128,19 +128,23 @@ p {
   padding: 0.85rem 0;
 }
 
-.logo {
-  text-decoration: none;
-  font-family: var(--serif);
-  font-size: 1.35rem;
-  font-weight: 560;
-  letter-spacing: -0.03em;
-  color: var(--ink);
+.logo,
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
-.logo em {
-  font-style: italic;
-  font-weight: 520;
-  color: var(--plum);
+.logo img {
+  display: block;
+  width: clamp(8.5rem, 17vw, 10.5rem);
+  height: auto;
+}
+
+.footer-brand img {
+  display: block;
+  width: min(11rem, 55vw);
+  height: auto;
 }
 
 .nav-toggle {
