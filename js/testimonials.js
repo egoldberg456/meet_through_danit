@@ -31,14 +31,11 @@
       Math.abs(offset - carousel.scrollLeft) < Math.abs(offsets[closest] - carousel.scrollLeft)
         ? index : closest, 0);
   };
-  const readingTime = () => {
-    const words = slides[currentIndex()].textContent.trim().split(/\s+/).length;
-    return Math.max(8000, Math.min(35000, words / 250 * 60000));
-  };
+  const AUTOPLAY_DELAY = 10000; // advance to the next testimonial every 10 seconds
   const schedule = () => {
     window.clearTimeout(autoplayTimer);
     if (userPaused || hovered || focused || touching || document.hidden) return;
-    autoplayTimer = window.setTimeout(() => moveBy(1), readingTime());
+    autoplayTimer = window.setTimeout(() => moveBy(1), AUTOPLAY_DELAY);
   };
   const moveTo = (index, instant = false) => {
     window.clearTimeout(autoplayTimer);
@@ -104,10 +101,13 @@
   });
   let activeIndex = 1;
   carousel.addEventListener("scroll", () => { activeIndex = currentIndex(); }, { passive: true });
+  // An instant jump still fires a scroll event, which clears the timer;
+  // wait two frames so that event has passed before starting autoplay.
+  const scheduleAfterJump = () => requestAnimationFrame(() => requestAnimationFrame(schedule));
   window.addEventListener("resize", () => {
     moveTo(activeIndex, true);
-    schedule();
+    scheduleAfterJump();
   });
   moveTo(1, true);
-  schedule();
+  scheduleAfterJump();
 })();
