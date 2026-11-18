@@ -19,8 +19,8 @@
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
-  max-width: 46rem;
-  margin-inline: auto;
+  width: 100%;
+  min-width: 0;
   padding: 1.5rem 0 1.25rem;
 }
 
@@ -50,4 +50,36 @@
 
 .testimonial-carousel::-webkit-scrollbar {
   display: none;
+}
+
+.testimonial-slider {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: clamp(0.25rem, 1.5vw, 1rem);
+  max-width: 54rem;
+  margin-inline: auto;
+}
+
+.testimonial-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--plum);
+  border-radius: 50%;
+  color: var(--plum);
+  background: var(--white);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.testimonial-arrow:hover {
+  background: var(--lavender);
+}
+
+.testimonial-arrow[hidden] {
+  visibility: hidden;
 }

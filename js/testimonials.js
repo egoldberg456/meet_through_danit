@@ -1,6 +1,7 @@
 (() => {
   const carousel = document.getElementById("testimonial-carousel");
-  if (!carousel) return;
+  const slider = document.querySelector(".testimonial-slider");
+  if (!carousel || !slider) return;
 
   const cards = [...carousel.querySelectorAll(".testimonial-card")];
   if (cards.length < 2) return;
@@ -11,6 +12,7 @@
   let touching = false;
   let autoplayTimer;
   let settleTimer;
+  const supportsScrollEnd = "onscrollend" in carousel;
 
   // Duplicate only the edge cards so a swipe can continue in either direction.
   const edgeCopy = (card) => {
@@ -58,8 +60,11 @@
     moveTo(currentIndex() + direction);
   };
 
-  carousel.addEventListener("keydown", (event) => {
-    if (event.target !== carousel) return;
+  slider.querySelectorAll("[data-testimonial-direction]").forEach((button) => {
+    button.hidden = false;
+    button.addEventListener("click", () => moveBy(Number(button.dataset.testimonialDirection)));
+  });
+  slider.addEventListener("keydown", (event) => {
     if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
     event.preventDefault();
     if (event.key === "Home") moveTo(1);
@@ -68,26 +73,28 @@
   });
   carousel.addEventListener("scroll", () => {
     window.clearTimeout(autoplayTimer);
-    window.clearTimeout(settleTimer);
-    settleTimer = window.setTimeout(settle, 180);
+    if (!supportsScrollEnd) {
+      window.clearTimeout(settleTimer);
+      settleTimer = window.setTimeout(settle, 250);
+    }
   }, { passive: true });
-  carousel.addEventListener("scrollend", settle);
-  carousel.addEventListener("pointerenter", (event) => {
+  if (supportsScrollEnd) carousel.addEventListener("scrollend", settle);
+  slider.addEventListener("pointerenter", (event) => {
     if (event.pointerType === "mouse") { hovered = true; schedule(); }
   });
-  carousel.addEventListener("pointerleave", (event) => {
+  slider.addEventListener("pointerleave", (event) => {
     if (event.pointerType === "mouse") { hovered = false; schedule(); }
   });
-  carousel.addEventListener("pointerdown", () => { touching = true; schedule(); });
+  slider.addEventListener("pointerdown", () => { touching = true; schedule(); });
   window.addEventListener("pointerup", () => {
     if (touching) { touching = false; schedule(); }
   });
   window.addEventListener("pointercancel", () => {
     if (touching) { touching = false; schedule(); }
   });
-  carousel.addEventListener("focusin", () => { focused = true; schedule(); });
-  carousel.addEventListener("focusout", () => {
-    focused = carousel.contains(document.activeElement);
+  slider.addEventListener("focusin", () => { focused = true; schedule(); });
+  slider.addEventListener("focusout", (event) => {
+    focused = slider.contains(event.relatedTarget);
     schedule();
   });
   document.addEventListener("visibilitychange", schedule);
