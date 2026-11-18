@@ -1,4 +1,4 @@
-/* Offerings: six cards in a grid; the featured card (dating consultation) is highlighted. */
+/* Paid services share the same visual emphasis. */
 .offerings-page .page-hero h1 {
   font-size: clamp(2.2rem, 4vw, 3.25rem);
   max-width: 23ch;
@@ -133,52 +133,6 @@
   text-align: center;
 }
 
-.offer-featured {
-  background: var(--plum);
-  border-color: var(--plum);
-  color: var(--cream);
-  transform: translateY(-12px);
-}
-
-.offer-featured .offer-kicker {
-  color: var(--lavender);
-}
-
-.offer-featured .offer-price {
-  border-color: rgba(255, 247, 233, 0.18);
-}
-
-.offer-featured .offer-price span,
-.offer-featured .offer-more p {
-  color: rgba(255, 247, 233, 0.75);
-}
-
-.offer-featured .offer-more summary {
-  color: #ffb4a6;
-}
-
-.offer-featured .offer-includes li::before {
-  border-color: #ffb4a6;
-}
-
-.offer-featured .btn {
-  background: var(--coral);
-}
-
-.offer-badge {
-  position: absolute;
-  top: -0.8rem;
-  left: 1.5rem;
-  background: var(--coral);
-  color: var(--cream);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 0.3rem 0.75rem;
-  border-radius: 999px;
-}
-
 .offer-help {
   text-align: center;
   margin: 3rem auto 0;
@@ -196,9 +150,6 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .offer-featured {
-    transform: none;
-  }
 }
 
 @media (max-width: 680px) {
