@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/testimonials.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -26,7 +27,7 @@
         <a href="about.html">About</a>
         <a href="services.html">Offerings</a>
         <a href="faq.html">FAQ</a>
-        <a class="nav-cta" href="https://airtable.com/appZC34FWLhTvPwVi/pag2e944d42wKajmj/form" target="_blank" rel="noopener noreferrer">Join the Database</a>
+        <a class="nav-cta" href="https://airtable.com/appZC34FWLhTvPwVi/pag2e944d42wKajmj/form" rel="noopener noreferrer">Join the Database</a>
       </nav>
     </div>
   </header>
@@ -96,13 +97,37 @@
     </section>
 
     <section class="section testimonials-intro" aria-labelledby="testimonials-heading">
-      <div class="wrap wrap-narrow center-copy">
-        <p class="kicker">Testimonials</p>
-        <h2 id="testimonials-heading">Kind words from people I’ve worked with</h2>
-        <blockquote class="testimonial-preview">
-          <p>“Danit so thoughtfully introduced me to someone who felt meaningfully aligned with what I was looking for in a partner. By way of this introduction, it was clear to me that she had taken the time to truly understand me on a deep level, beyond the desired qualities on paper, and was incredibly intentional in her matchmaking approach. I’m so appreciative of the care, thoughtfulness, and personal attention she brought to the entire experience, and have no doubt she brings that same level of dedication and genuine investment to every person who is lucky enough to work with her.”</p>
-          <footer>H, female, 30</footer>
-        </blockquote>
+      <div class="wrap">
+        <div class="center-copy">
+          <p class="kicker">Testimonials</p>
+          <h2 id="testimonials-heading">Kind words from people I’ve worked with</h2>
+          <p class="testimonial-hint" id="testimonial-hint">Swipe or scroll to read more stories.</p>
+        </div>
+        <div class="testimonial-carousel" id="testimonial-carousel" role="region" aria-label="Client testimonials" aria-describedby="testimonial-hint" tabindex="0">
+        <figure class="testimonial-card">
+          <blockquote>
+            <p>“Danit so thoughtfully introduced me to someone who felt meaningfully aligned with what I was looking for in a partner. By way of this introduction, it was clear to me that she had taken the time to truly understand me on a deep level, beyond the desired qualities on paper, and was incredibly intentional in her matchmaking approach. I’m so appreciative of the care, thoughtfulness, and personal attention she brought to the entire experience, and have no doubt she brings that same level of dedication and genuine investment to every person who is lucky enough to work with her.”</p>
+          </blockquote>
+          <figcaption>H, female, 30</figcaption>
+        </figure>
+        <figure class="testimonial-card">
+          <blockquote>
+            <p>“Danit is upbeat, easy to talk to, and encouraging. Every date she set me up on felt thoughtfully considered. It was clear she really listened to what I was looking for. It’s been lovely having her support in my corner while dating.”</p>
+          </blockquote>
+          <figcaption>A, female, 29</figcaption>
+        </figure>
+        <figure class="testimonial-card">
+          <blockquote>
+            <p>“Working with Danit was a genuine joy. She's bubbly, warm, and deeply empathetic, and you can tell she truly cares about the people she works with. I'll admit I went in skeptical. I was jaded about dating and half-rolling my eyes at the whole process. But Danit took the time to understand who I am and what I'm really looking for, and she introduced me to someone beautiful and genuinely like-minded. I was so pleasantly surprised. If you're on the fence about working with a matchmaker, Danit is the one to change your mind.”</p>
+          </blockquote>
+          <figcaption>Y, male, 33</figcaption>
+        </figure>
+        </div>
+        <div class="testimonial-controls" hidden>
+          <button class="testimonial-arrow" type="button" data-testimonial-direction="-1" aria-controls="testimonial-carousel" aria-label="Previous testimonial">Previous</button>
+          <span class="testimonial-count" aria-live="polite" aria-atomic="true">1 of 3</span>
+          <button class="testimonial-arrow" type="button" data-testimonial-direction="1" aria-controls="testimonial-carousel" aria-label="Next testimonial">Next</button>
+        </div>
         <div class="actions"><a class="btn btn-outline" href="testimonials.html">View all testimonials</a></div>
       </div>
     </section>
@@ -130,7 +155,7 @@
         <a href="services.html">Offerings</a>
         <a href="faq.html">FAQ</a>
         <a href="testimonials.html">Testimonials</a>
-        <a href="https://airtable.com/appZC34FWLhTvPwVi/pag2e944d42wKajmj/form" target="_blank" rel="noopener noreferrer">Join the Database</a>
+        <a href="https://airtable.com/appZC34FWLhTvPwVi/pag2e944d42wKajmj/form" rel="noopener noreferrer">Join the Database</a>
         <a href="mailto:danit@meetthroughdanit.com?subject=Meet%20Through%20Danit">Email Danit</a>
         <a href="privacy.html">Privacy Policy</a>
         <a href="terms.html">Terms</a>
@@ -141,5 +166,6 @@
     </div>
   </footer>
   <script src="js/main.js" defer></script>
+  <script src="js/testimonials.js" defer></script>
 </body>
 </html>

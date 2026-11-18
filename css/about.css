@@ -1,0 +1,20 @@
+.about-intro {
+  margin-top: 1.25rem;
+}
+
+.about-story {
+  padding-top: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.about-portrait-small img {
+  object-position: 54% 45%;
+  transform: scale(1.08);
+  transform-origin: 54% 45%;
+}
+
+@media (max-width: 699px) {
+  .about-portrait-cluster {
+    justify-self: center;
+    width: min(100%, 340px);
+  }
+}
