@@ -11,7 +11,7 @@
 
 .offer-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 2rem 1.25rem;
   align-items: stretch;
   padding-top: 0.75rem;
@@ -38,7 +38,8 @@
   margin-bottom: 0.5rem;
 }
 
-.offer h2 {
+.offer h2,
+.offer h3 {
   font-size: 1.75rem;
   margin-bottom: 1rem;
 }
@@ -157,3 +158,12 @@
     grid-template-columns: 1fr;
   }
 }
+
+.more-support { padding-top: 0; }
+.more-support > .wrap > h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: 1.5rem; }
+.more-support .offer { padding: 1.4rem; box-shadow: none; }
+.more-support .offer h3 { font-size: 1.5rem; }
+.more-support .offer-price { font-size: 2rem; }
+.personalized-invitation { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--line); scroll-margin-top: calc(var(--header) + 1rem); }
+.personalized-invitation h3 { font-size: 1.5rem; margin-bottom: 0.65rem; }
+.personalized-invitation a { color: var(--coral-deep); }

@@ -12,13 +12,3 @@
 .database-copy { font-size: 1.125rem; line-height: 1.65; margin-bottom: 1.5rem; }
 .database-reassurance { margin-top: 0.75rem; font-size: 0.95rem; color: var(--muted); }
 .database-hero-note { margin-top: 0.75rem; font-size: 0.95rem; color: var(--cream); }
-
-.consultation-next-step {
-  padding: clamp(2rem, 4vw, 3rem) 0 0;
-  background: var(--cream);
-}
-.consultation-next-step h2 {
-  font-size: clamp(1.75rem, 3vw, 2.25rem);
-  margin-bottom: 1rem;
-}
-.consultation-next-step .btn { margin-top: 1.25rem; }
