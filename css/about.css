@@ -23,3 +23,7 @@
 .about-story + .section-follow {
   padding-top: 0;
 }
+
+.about-story > .wrap {
+  width: min(980px, calc(100% - 2.5rem));
+}
