@@ -83,3 +83,29 @@
 .testimonial-arrow[hidden] {
   visibility: hidden;
 }
+
+/* Home page carousel: the lavender top edge doubles as a progress bar
+   that fills before the next testimonial slides in. */
+.testimonial-carousel .testimonial-card {
+  position: relative;
+  overflow: hidden;
+  border-top: 0;
+  padding-top: calc(clamp(1.25rem, 2.5vw, 2rem) + 5px);
+}
+
+.testimonial-carousel .testimonial-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 5px;
+  background: var(--lavender);
+}
+
+.testimonial-progress {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 5px;
+  background: var(--plum);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
