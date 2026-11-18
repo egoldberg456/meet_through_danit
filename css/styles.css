@@ -137,7 +137,7 @@ p {
 
 .logo img {
   display: block;
-  width: clamp(8.5rem, 17vw, 10.5rem);
+  width: 8.5rem;
   height: auto;
 }
 
@@ -894,9 +894,9 @@ select[aria-invalid="true"] {
   }
 
   .header-inner {
-    flex-direction: column;
-    justify-content: center;
-    padding: 1.15rem 0 0.95rem;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.65rem 0;
   }
 
   .nav-toggle {
@@ -908,8 +908,8 @@ select[aria-invalid="true"] {
     position: static;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    gap: 1.35rem;
+    justify-content: flex-end;
+    gap: clamp(0.75rem, 1.7vw, 1.35rem);
     border: 0;
     background: transparent;
     padding: 0 0 0.15rem;
