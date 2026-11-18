@@ -1,53 +1,4 @@
-/* Keep each offering easy to scan without hiding its details. */
-.offerings-section .tier-list {
-  gap: 0.85rem;
-}
-
-.offerings-section .tier {
-  gap: 0.8rem;
-  padding: clamp(1.1rem, 2vw, 1.5rem);
-  border-radius: 22px;
-}
-
-.offerings-section .tier-kicker {
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  margin-bottom: 0.35rem;
-}
-
-.offerings-section .price {
-  font-size: clamp(2.15rem, 3vw, 2.65rem);
-}
-
-.offerings-section .price span {
-  font-size: 0.9rem;
-}
-
-.offerings-section .tier h3 {
-  font-size: clamp(1.7rem, 2.5vw, 2.15rem);
-  margin-bottom: 0.6rem;
-}
-
-.offerings-section .tier .prose {
-  font-size: 1rem;
-  line-height: 1.6;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-}
-
-.offerings-section .tier .btn {
-  padding: 0.75rem 1.1rem;
-  font-size: 0.92rem;
-  text-align: center;
-}
-
-@media (min-width: 800px) {
-  .offerings-section .tier {
-    grid-template-columns: 170px minmax(0, 1fr);
-    gap: 1.5rem;
-  }
-}
-
+/* Offerings: six cards in a grid; the featured card (dating consultation) is highlighted. */
 .offerings-page .page-hero h1 {
   font-size: clamp(2.2rem, 4vw, 3.25rem);
   max-width: 23ch;
@@ -58,66 +9,200 @@
   max-width: 45rem;
 }
 
-.offerings-view {
-  display: none;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 0.45rem;
-  margin-top: 1.75rem;
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem 1.25rem;
+  align-items: stretch;
+  padding-top: 0.75rem;
 }
 
-.offerings-view span {
-  margin-right: 0.3rem;
-  color: var(--muted);
-  font-size: 0.88rem;
-}
-
-.offerings-view button {
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 0.55rem 0.9rem;
+.offer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   background: var(--white);
-  color: var(--plum);
-  font-size: 0.88rem;
-  cursor: pointer;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 1.75rem 1.5rem;
+  box-shadow: var(--shadow);
+  scroll-margin-top: calc(var(--header) + 1.5rem);
 }
 
-.offerings-view button[aria-pressed="true"] {
+.offer-kicker {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--coral-deep);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.offer h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.offer-price {
+  font-family: var(--serif);
+  font-size: 2.4rem;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.offer-price span {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  color: var(--muted);
+  letter-spacing: 0;
+  margin-left: 0.3rem;
+}
+
+.offer-summary {
+  font-size: 0.98rem;
+  margin-bottom: 1.1rem;
+}
+
+.offer-includes {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  display: grid;
+  gap: 0.45rem;
+  font-size: 0.95rem;
+}
+
+.offer-includes li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.offer-includes li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.7rem;
+  height: 0.38rem;
+  border-left: 2px solid var(--coral-deep);
+  border-bottom: 2px solid var(--coral-deep);
+  transform: rotate(-45deg);
+}
+
+.offer-more summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  list-style: none;
+  color: var(--coral-deep);
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.offer-more summary::-webkit-details-marker {
+  display: none;
+}
+
+.offer-more summary::after {
+  content: "+";
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.offer-more[open] summary::after {
+  content: "\2013";
+}
+
+.offer-more p {
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.offer-cta {
+  margin-top: auto;
+  padding-top: 1.25rem;
+}
+
+.offer-cta .btn {
+  width: 100%;
+  text-align: center;
+}
+
+.offer-featured {
   background: var(--plum);
   border-color: var(--plum);
   color: var(--cream);
+  transform: translateY(-12px);
 }
 
-@media (min-width: 1100px) {
-  .offerings-view:not([hidden]) {
-    display: flex;
-  }
+.offer-featured .offer-kicker {
+  color: var(--lavender);
+}
 
-  .offerings-layout[data-view="side-by-side"] {
-    display: grid;
+.offer-featured .offer-price {
+  border-color: rgba(255, 247, 233, 0.18);
+}
+
+.offer-featured .offer-price span,
+.offer-featured .offer-more p {
+  color: rgba(255, 247, 233, 0.75);
+}
+
+.offer-featured .offer-more summary {
+  color: #ffb4a6;
+}
+
+.offer-featured .offer-includes li::before {
+  border-color: #ffb4a6;
+}
+
+.offer-featured .btn {
+  background: var(--coral);
+}
+
+.offer-badge {
+  position: absolute;
+  top: -0.8rem;
+  left: 1.5rem;
+  background: var(--coral);
+  color: var(--cream);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+}
+
+.offer-help {
+  text-align: center;
+  margin: 3rem auto 0;
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-style: italic;
+}
+
+.offer-help a {
+  color: var(--coral-deep);
+}
+
+@media (max-width: 1000px) {
+  .offer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: start;
-    gap: 1.5rem;
-    width: min(1120px, calc(100% - 2.5rem));
-    margin-inline: auto;
-    padding: 2rem 0 clamp(4.5rem, 8vw, 7rem);
   }
 
-  .offerings-layout[data-view="side-by-side"] .offerings-section {
-    padding: 0;
-    min-width: 0;
+  .offer-featured {
+    transform: none;
   }
+}
 
-  .offerings-layout[data-view="side-by-side"] .offerings-section > .wrap {
-    width: 100%;
-  }
-
-  .offerings-layout[data-view="side-by-side"] .offerings-heading {
-    font-size: 2.05rem;
-  }
-
-  .offerings-layout[data-view="side-by-side"] .tier {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1rem;
+@media (max-width: 680px) {
+  .offer-grid {
+    grid-template-columns: 1fr;
   }
 }
