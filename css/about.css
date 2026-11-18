@@ -8,9 +8,7 @@
 }
 
 .about-portrait-small img {
-  object-position: 54% 45%;
-  transform: scale(1.08);
-  transform-origin: 54% 45%;
+  object-position: 50% 20%;
 }
 
 @media (max-width: 699px) {
