@@ -13,13 +13,15 @@
   position: relative;
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: min(86%, 34rem);
+  grid-auto-columns: 100%;
   align-items: start;
   gap: 1.25rem;
   overflow-x: auto;
-  scroll-snap-type: x proximity;
-  scrollbar-color: var(--lavender) var(--cream);
-  padding: 1.5rem 0.2rem 1.25rem;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  max-width: 46rem;
+  margin-inline: auto;
+  padding: 1.5rem 0 1.25rem;
 }
 
 .testimonial-carousel .testimonial-card {
@@ -30,41 +32,22 @@
   text-align: left;
 }
 
-.testimonial-controls:not([hidden]) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 0.5rem;
-}
-
-.testimonial-arrow {
-  min-height: 2.75rem;
-  padding: 0.45rem 1rem;
-  border: 1px solid var(--plum);
-  border-radius: 999px;
-  color: var(--plum);
-  background: var(--white);
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-
-.testimonial-arrow:hover {
-  background: var(--lavender);
-}
-
-.testimonial-arrow:disabled {
-  opacity: 0.45;
-  cursor: default;
-}
-
-.testimonial-count {
-  min-width: 3rem;
-  text-align: center;
-  font-size: 0.9rem;
-  color: var(--muted);
-}
-
 .testimonials-list .testimonial-card + .testimonial-card {
   margin-top: 1.25rem;
+}
+
+.who-section {
+  padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.testimonials-intro {
+  padding-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.testimonials-page-hero h1 {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.testimonial-carousel::-webkit-scrollbar {
+  display: none;
 }

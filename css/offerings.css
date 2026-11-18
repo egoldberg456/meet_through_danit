@@ -47,3 +47,77 @@
     gap: 1.5rem;
   }
 }
+
+.offerings-page .page-hero h1 {
+  font-size: clamp(2.2rem, 4vw, 3.25rem);
+  max-width: 23ch;
+}
+
+.offerings-page .page-hero .lede {
+  font-size: clamp(1.05rem, 1.7vw, 1.15rem);
+  max-width: 45rem;
+}
+
+.offerings-view {
+  display: none;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.45rem;
+  margin-top: 1.75rem;
+}
+
+.offerings-view span {
+  margin-right: 0.3rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.offerings-view button {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.55rem 0.9rem;
+  background: var(--white);
+  color: var(--plum);
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+.offerings-view button[aria-pressed="true"] {
+  background: var(--plum);
+  border-color: var(--plum);
+  color: var(--cream);
+}
+
+@media (min-width: 1100px) {
+  .offerings-view:not([hidden]) {
+    display: flex;
+  }
+
+  .offerings-layout[data-view="side-by-side"] {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 1.5rem;
+    width: min(1120px, calc(100% - 2.5rem));
+    margin-inline: auto;
+    padding: 2rem 0 clamp(4.5rem, 8vw, 7rem);
+  }
+
+  .offerings-layout[data-view="side-by-side"] .offerings-section {
+    padding: 0;
+    min-width: 0;
+  }
+
+  .offerings-layout[data-view="side-by-side"] .offerings-section > .wrap {
+    width: 100%;
+  }
+
+  .offerings-layout[data-view="side-by-side"] .offerings-heading {
+    font-size: 2.05rem;
+  }
+
+  .offerings-layout[data-view="side-by-side"] .tier {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+}

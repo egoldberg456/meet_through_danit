@@ -32,7 +32,7 @@
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" class="offerings-page">
     <section class="page-hero">
       <div class="wrap">
         <p class="kicker">Offerings</p>
@@ -41,6 +41,13 @@
       </div>
     </section>
 
+    <div class="wrap offerings-view" role="group" aria-label="Offerings layout" hidden>
+      <span>View</span>
+      <button type="button" data-offerings-view="stacked" aria-pressed="true" aria-controls="offerings-layout">Stacked</button>
+      <button type="button" data-offerings-view="side-by-side" aria-pressed="false" aria-controls="offerings-layout">Side by side</button>
+    </div>
+
+    <div id="offerings-layout" class="offerings-layout" data-view="stacked">
     <section class="section offerings-section" aria-labelledby="matchmaking-heading">
       <div class="wrap">
         <h2 class="offerings-heading" id="matchmaking-heading">Matchmaking</h2>
@@ -142,6 +149,7 @@
         </div>
       </div>
     </section>
+    </div>
   </main>
 
   <footer class="site-footer">
@@ -167,5 +175,6 @@
     </div>
   </footer>
   <script src="js/main.js" defer></script>
+  <script src="js/offerings.js" defer></script>
 </body>
 </html>

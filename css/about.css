@@ -4,6 +4,7 @@
 
 .about-story {
   padding-top: clamp(1.75rem, 3vw, 2.5rem);
+  padding-bottom: clamp(1.75rem, 3vw, 2.5rem);
 }
 
 .about-portrait-small img {
@@ -17,4 +18,8 @@
     justify-self: center;
     width: min(100%, 340px);
   }
+}
+
+.about-story + .section-follow {
+  padding-top: 0;
 }
