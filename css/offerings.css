@@ -171,3 +171,4 @@
 .personalized-invitation { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--line); scroll-margin-top: calc(var(--header) + 1rem); }
 .personalized-invitation h3 { font-size: 1.5rem; margin-bottom: 0.65rem; }
 .personalized-invitation a { color: var(--coral-deep); }
+.more-support .offer-grid > .offer:only-child { grid-column: 1 / -1; }
