@@ -13,7 +13,15 @@ Website for Meet Through Danit, a Jewish matchmaking and dating-coaching practic
 - `ask.html` - Get in touch
 - `privacy.html` - Privacy Policy
 - `terms.html` - Terms and Conditions
+- `404.html` - Page not found (served by the host for unknown URLs)
 
+## Other files
+
+- `robots.txt` - Crawler rules and sitemap location
+- `sitemap.xml` - Public pages for search engines (excludes `join.html` and `ask.html`)
+- `og-image.jpg` - 1200x630 image used for link previews
+
+Canonical and link-preview URLs assume the domain `https://meetthroughdanit.com`.
 ## Preview locally
 
 From the repo root:
